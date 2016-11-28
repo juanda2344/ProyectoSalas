@@ -5,7 +5,6 @@
  */
 package CRUD;
 
-
 import Conexion.DBUtils;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,36 +18,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Profesores;
 
-
 /**
  *
  * @author porta
  */
 public class CRUDProfesores {
 
-    public java.sql.Date convertirADate (String fecha){
-        try {
-            SimpleDateFormat formatoDelTexto = new SimpleDateFormat("dd-mm-yyyy");
-            Date parsed = formatoDelTexto.parse(fecha);
-            java.sql.Date DateSql = new java.sql.Date(parsed.getDate());
-            return DateSql;
-        } catch (ParseException ex) {
-            System.out.println("Imposible Castear A Date :" + ex.getMessage());
-        }
-        return null;
-    }
-    
     public void addProfesor(Profesores p) throws ClassNotFoundException {
-            
-        
+
         try {
-            PreparedStatement ps = DBUtils.getPreparedStatement("insert into Profesores (documento, nombres, apellidos, correo, telefono, cumpleaños) values (?,?,?,?,?,?)");
+            PreparedStatement ps = DBUtils.getPreparedStatement("insert into Profesores (documento, nombres, apellidos, correo, telefono, cumpleanos) values (?,?,?,?,?,?)");
             ps.setString(1, p.getCedula());
             ps.setString(2, p.getNombres());
             ps.setString(3, p.getApellidos());
             ps.setString(4, p.getCorreo());
             ps.setString(5, p.getTelefono());
-            ps.setDate(6, convertirADate(p.getCumpleaños()));
+            ps.setString(6, p.getCumpleaños());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Error al agregar un profesor el error es: " + ex.getMessage());
@@ -59,7 +44,7 @@ public class CRUDProfesores {
         LinkedList<Profesores> listProfesores = new LinkedList<>();
         try {
             ResultSet rs = DBUtils.getPreparedStatement("select * from Profesores").executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 listProfesores.addLast(new Profesores(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
             }
 
@@ -68,53 +53,53 @@ public class CRUDProfesores {
         }
         return listProfesores;
     }
-    
+
     public static List<Profesores> getNewByCedula(int cedula) throws ClassNotFoundException, SQLException {
-        
+
         LinkedList<Profesores> listProfesores = new LinkedList<>();
-        
-        String sql = "select * from Profesores where cedula ="+cedula;
-        
+
+        String sql = "select * from Profesores where documento =" + cedula;
+
         try {
-            
+
             ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();
-            while (rs.next()){
-                
+            while (rs.next()) {
+
                 listProfesores.addLast(new Profesores(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
             }
         } catch (SQLException ex) {
             System.out.println("Error comsultando la lista de profesores el error es: " + ex.getMessage());
         }
-    
+
         return listProfesores;
     }
 
-    public void edit(int cedula, String nombres, String apellidos, String correo, int telefono, String cumpleaños) throws ClassNotFoundException{
+    public void edit(String cedula, String nombres, String apellidos, String correo, String telefono, String cumpleaños) throws ClassNotFoundException {
         try {
-            String sql = "update Profesores set nombres = ?, apellidos = ?, correo = ?, telefono = ?, cumpleaños = ? " + "where cedula = ?";
+            String sql = "update Profesores set nombres = ?, apellidos = ?, correo = ?, telefono = ?, cumpleanos = ? " + "where documento = ?";
             PreparedStatement ps = DBUtils.getPreparedStatement(sql);
             ps.setString(1, nombres);
             ps.setString(2, apellidos);
             ps.setString(3, correo);
-            ps.setInt(4, telefono);
-            ps.setDate(5, convertirADate(cumpleaños));
-            ps.setInt(6, cedula);
+            ps.setString(4, telefono);
+            ps.setString(5, cumpleaños);
+            ps.setString(6, cedula);
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CRUDProfesores.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void delete (int cedula) throws ClassNotFoundException{
+
+    public void delete(int cedula) throws ClassNotFoundException {
         try {
-            String sql = "delete Profesores where cedula = ?";
+            String sql = "delete Profesores where documento = ?";
             PreparedStatement ps = DBUtils.getPreparedStatement(sql);
             ps.setLong(1, cedula);
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CRUDProfesores.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
     }
-    
+
 }

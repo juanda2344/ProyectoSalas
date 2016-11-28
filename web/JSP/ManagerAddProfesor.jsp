@@ -26,7 +26,7 @@
             CRUDProfesores da = new CRUDProfesores();
             da.addProfesor(p);
             
-            //response.sendRedirect("/Proyecto_Salas/mostrarp");
+            response.sendRedirect("/Proyecto_Salas/mostrarp");
         %>
     </body>
 </html>
