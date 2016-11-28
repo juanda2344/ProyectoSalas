@@ -1,26 +1,30 @@
 
 
 
-$(function () {
+$(function () 
+{
 
 
-    $('#login').on('click', login);
-
-    function login()
+    $('#login').click(function(event) 
     {
-        
-        
-        var nombreusuario = $('#UserName').val();
-        var contrasena = $('#Password').val();
-        alert(nombreusuario);
-        alert(contrasena);
-        $.post("/Proyecto_Salas/Principal", {
-            op:"1",
-            user: nombreusuario,
-            password: contrasena
-        });
+                        
+			var user = $('#username').val();
+			var pass = $('#password').val();
+			
+			// Si en vez de por post lo queremos hacer por get, cambiamos el $.post por $.get
+			$.post('login', 
+			{
+				username :user,
+				password: pass
+				
+			}, function(responseText) 
+			{
+				
+				$('#mensaje').html(responseText);
+			});
+	});
 
-    }
+
 });
 
        
