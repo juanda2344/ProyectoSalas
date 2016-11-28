@@ -18,16 +18,18 @@
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Custom Stylesheet -->
 	<link rel="stylesheet" href="css/style.css">
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-</head>
+      <script src="http://code.jquery.com/jquery-latest.js"> </script>
+      <script type="text/javascript" src="js/login.js"></script>
+      
+      
+	</head>
 
 <body>
 	<div class="container">
 		<div class="top">
 			<h1 id="title" class="hidden"><span id="logo">Coordinación de Salas <span>UCALDAS</span></span></h1>
 		</div>
-		<form action="login" method="POST">
+		
 		<div class="login-box animated fadeInUp">
 			<div class="box-header">
 				<h2>Iniciar Sesión</h2>
@@ -40,11 +42,13 @@
 			<br/>
 			<input type="password" id="password" name="password" required>
 			<br/>
-			<button type="submit" >Ingresar</button>
+                        <button type="submit" id="login" >Ingresar</button>
+                        <p id="mensaje" style="color:red"></p>
 			<br/>
+                       
 			
 		</div>
-		</form>
+		
 	</div>
 </body>
 
