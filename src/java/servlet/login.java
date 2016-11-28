@@ -51,6 +51,8 @@ public class login extends HttpServlet {
         }
         else
         {
+            PrintWriter out = response.getWriter();
+            out.println("<div >Error de usuario o contraseña</div>");
             
         }
     
