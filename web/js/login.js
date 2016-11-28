@@ -16,9 +16,11 @@ $(function ()
 			{
 				username :user,
 				password: pass
+                                
 				
 			}, function(responseText) 
 			{
+                                alert(responseText);
 				
 				$('#mensaje').html(responseText);
 			});

@@ -35,27 +35,40 @@ public class login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
+        
         HttpSession sesion = request.getSession();
+        sesion.invalidate();
+        String n = request.getParameter("n");
+        
+        
+       
         String usu, pass;
         usu = request.getParameter("username");
         pass = request.getParameter("password");
         System.out.println(usu);
         System.out.println(pass);
         List<Usuario> ls=CRUD.CRUDUsuario.login(usu, pass);
-        if(ls.size()!=0 && sesion.getAttribute("usuario") == null){
+        if(ls.size()!=0 && sesion.getAttribute("usuario") == null)
+        {
+            System.out.println("pasa");
             //si coincide usuario y password y además no hay sesión iniciada
             sesion.setAttribute("usuario", usu);
             //redirijo a página con información de login exitoso
-            request.getSession().setAttribute("servletMsg", "Retroalimentación"); 
+           
             response.sendRedirect("principal.jsp");
         }
+        
         else
         {
+            System.out.println("entraaqui");
             PrintWriter out = response.getWriter();
             out.println("<div >Error de usuario o contraseña</div>");
             
         }
-    
+        
+        
+      
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

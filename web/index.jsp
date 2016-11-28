@@ -30,7 +30,7 @@
                 <h1 id="title" class="hidden"><span id="logo">Coordinación de Salas <span>UCALDAS</span></span></h1>
             </div>
 
-            <form>
+            
                 <div class="login-box animated fadeInUp">
                     <div class="box-header">
                         <h2>Iniciar Sesión</h2>
@@ -47,7 +47,7 @@
                     <p id="mensaje" style="color:red"></p>
                     <br/>
                 </div>
-            </form>
+            
 
         </div>
     </body>

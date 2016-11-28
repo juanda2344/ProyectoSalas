@@ -71,6 +71,10 @@
 											
 										</ul>
 									</li>
+                                                                        <li>
+										<a href="login?n=1">Cerrar Sesión</a>
+										
+									</li>
 								</ul>
 							</nav>
 

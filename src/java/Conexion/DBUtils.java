@@ -17,9 +17,9 @@ public class DBUtils {
     public static PreparedStatement getPreparedStatement(String sql) throws ClassNotFoundException, SQLException{
         PreparedStatement ps =  null;
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        String url = "jdbc:sqlserver://DESKTOP-77IR9KK:1433;databaseName=USI";
-        String user = "sa";
-        String pass = "admin";
+        String url = "jdbc:sqlserver://DESKTOP-KPG7CDO:1433;databaseName=USI";
+        String user = "juand";
+        String pass = "123456";
       
         
         Connection con = DriverManager.getConnection(url, user, pass);

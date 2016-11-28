@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Juan/Software%20II/CRUD_News/Proyecto_Salas/src/java/servlet/Editar.java</file>
-            <file>file:/D:/Juan/Software%20II/CRUD_News/Proyecto_Salas/src/java/modelo/Usuario.java</file>
-            <file>file:/D:/Juan/Software%20II/CRUD_News/Proyecto_Salas/src/java/servlet/login.java</file>
-            <file>file:/D:/Juan/Software%20II/CRUD_News/Proyecto_Salas/src/java/servlet/MostrarUsuarios.java</file>
+            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/principal.jsp</file>
+            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/addProfesores.html</file>
+            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/js/login.js</file>
+            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/src/java/servlet/login.java</file>
+            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/EditarProfesor.jsp</file>
+            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>
