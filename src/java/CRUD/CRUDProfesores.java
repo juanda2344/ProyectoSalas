@@ -42,12 +42,12 @@ public class CRUDProfesores {
             
         
         try {
-            PreparedStatement ps = DBUtils.getPreparedStatement("insert into Profesores (cedula, nombres, apellidos, correo, telefono, cumpleaños) values (?,?,?,?,?,?)");
-            ps.setLong(1, p.getCedula());
+            PreparedStatement ps = DBUtils.getPreparedStatement("insert into Profesores (documento, nombres, apellidos, correo, telefono, cumpleaños) values (?,?,?,?,?,?)");
+            ps.setString(1, p.getCedula());
             ps.setString(2, p.getNombres());
             ps.setString(3, p.getApellidos());
             ps.setString(4, p.getCorreo());
-            ps.setLong(5, p.getTelefono());
+            ps.setString(5, p.getTelefono());
             ps.setDate(6, convertirADate(p.getCumpleaños()));
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -60,7 +60,7 @@ public class CRUDProfesores {
         try {
             ResultSet rs = DBUtils.getPreparedStatement("select * from Profesores").executeQuery();
             while (rs.next()){
-                listProfesores.addLast(new Profesores(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6)));
+                listProfesores.addLast(new Profesores(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
             }
 
         } catch (SQLException ex) {
@@ -80,7 +80,7 @@ public class CRUDProfesores {
             ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();
             while (rs.next()){
                 
-                listProfesores.addLast(new Profesores(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getString(6)));
+                listProfesores.addLast(new Profesores(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
             }
         } catch (SQLException ex) {
             System.out.println("Error comsultando la lista de profesores el error es: " + ex.getMessage());

@@ -37,7 +37,7 @@
                     </div>
                     <label for="username">Usuario</label>
                     <br/>
-                    <input type="text" id="username" name="username" required>
+                    <input type="text" id="username" name="username"  required>
                     <br/>
                     <label for="password">Contraseña</label>
                     <br/>

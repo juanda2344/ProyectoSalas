@@ -12,14 +12,14 @@ package modelo;
  * @author porta
  */
 public class Profesores {
-    private int cedula;
+    private String cedula;
     private String nombres;
     private String apellidos;
     private String correo;
-    private long telefono;
     private String cumpleaños;
+    private String telefono;
 
-    public Profesores(int cedula, String nombres, String apellidos, String correo, int telefono, String cumpleaños) {
+    public Profesores(String cedula, String nombres, String apellidos, String correo, String telefono, String cumpleaños) {
         this.cedula = cedula;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -27,26 +27,12 @@ public class Profesores {
         this.telefono = telefono;
         this.cumpleaños = cumpleaños;
     }
-    
-    
 
-   
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-
-
-    public long getCedula() {
+    public String getCedula() {
         return cedula;
     }
 
-    public void setCedula(int cedula) {
+    public void setCedula(String cedula) {
         this.cedula = cedula;
     }
 
@@ -66,12 +52,12 @@ public class Profesores {
         this.apellidos = apellidos;
     }
 
-    public long getTelefono() {
-        return telefono;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getCumpleaños() {
@@ -81,6 +67,15 @@ public class Profesores {
     public void setCumpleaños(String cumpleaños) {
         this.cumpleaños = cumpleaños;
     }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+    
     
     
     

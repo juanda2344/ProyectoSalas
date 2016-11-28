@@ -8,26 +8,39 @@ and open the template in the editor.
     <head>
         <title>Agregar Profesor</title>
         <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <!-- Google Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/animate.css">        
+        <link rel="stylesheet" href="css/style.css">
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Agregar Profesor</h1>
-        <div style="width: 900px; margin-left: auto; margin-right: auto">
-            <form action="JSP/ManagerAddProfesor.jsp" method="post">
-                Cedula:<br>
-                <input type="number" name="cedula" style="width: 200px"><br>
-                Nombres:<br>
-                <input type="text" name="nombres" style="width: 200px"><br>
-                Apellidos:<br>
-                <input type="text" name="apellidos" style="width: 200px"><br>
-                Correo:<br>
-                <input type="text" name="correo" style="width: 200px"><br>
-                Telefono:<br>
-                <input type="number" name="telefono" style="width: 200px"><br>
-                Fecha De Nacimiento:<br>
-                <input type="date" name="cumpleanos" style="width: 200px"><br>
-                <input type="submit" name="Submit">
-            </form>
+        <div class="container">
+            <div class="top">
+                <h1 id="title" class="hidden"><span id="logo">Coordinación de Salas <span>UCALDAS</span></span></h1>
+            </div>
+            <div class="login-box animated fadeInUp">
+                <div class="box-header">
+                        <h2>Agregar Profesor</h2>
+                    </div>
+                    <form action="JSP/ManagerAddProfesor.jsp" method="post">
+                        Cedula:<br>
+                        <input type="number" name="cedula" style="width: 200px" placeholder="Ingrese su cedula" required ><br>
+                        Nombres:<br>
+                        <input type="text" name="nombres" style="width: 200px" placeholder="Ingrese su nombre" required><br>
+                        Apellidos:<br>
+                        <input type="text" name="apellidos" style="width: 200px" placeholder="Ingrese su apellido" required><br>
+                        Correo:<br>
+                        <input type="text" name="correo" style="width: 200px" placeholder="Ingrese su correo" required><br>
+                        Telefono:<br>
+                        <input type="number" name="telefono" style="width: 200px" placeholder="Ingrese su Telefono" required><br>
+                        Fecha De Nacimiento:<br>
+                        <input type="date" name="cumpleanos" style="width: 200px" required><br>
+                        <input type="submit" name="Submit">
+                    </form>
+            </div>
         </div>
     </body>
 </html>

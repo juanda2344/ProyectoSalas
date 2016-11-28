@@ -22,11 +22,11 @@
             String telefono = request.getParameter("telefono");
             String cumpleaños = request.getParameter("cumpleanos");
             
-            Profesores p = new Profesores(0, Long.parseLong(cedula), nombres, apellidos, correo, Long.parseLong(telefono), cumpleaños);
+            Profesores p = new Profesores(cedula, nombres, apellidos, correo, telefono, cumpleaños);
             CRUDProfesores da = new CRUDProfesores();
             da.addProfesor(p);
             
-            response.sendRedirect("/Proyecto_Salas/mostrarp");
+            //response.sendRedirect("/Proyecto_Salas/mostrarp");
         %>
     </body>
 </html>
