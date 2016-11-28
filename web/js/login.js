@@ -20,9 +20,15 @@ $(function ()
 				
 			}, function(responseText) 
 			{
-                                alert(responseText);
-				
-				$('#mensaje').html(responseText);
+                                
+				if(responseText.trim()=="dirigir")
+                                {
+                                    window.location="principal.jsp"
+                                }
+                                else
+                                {
+				   $('#mensaje').html(responseText);
+                                }
 			});
 	});
 

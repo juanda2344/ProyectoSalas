@@ -37,25 +37,24 @@ public class login extends HttpServlet {
     {
         
         HttpSession sesion = request.getSession();
-        sesion.invalidate();
-        String n = request.getParameter("n");
+             
         
-        
-       
         String usu, pass;
         usu = request.getParameter("username");
         pass = request.getParameter("password");
         System.out.println(usu);
         System.out.println(pass);
         List<Usuario> ls=CRUD.CRUDUsuario.login(usu, pass);
-        if(ls.size()!=0 && sesion.getAttribute("usuario") == null)
+        System.out.println(ls.size());
+        if(ls.size()!=0)
         {
             System.out.println("pasa");
             //si coincide usuario y password y además no hay sesión iniciada
             sesion.setAttribute("usuario", usu);
             //redirijo a página con información de login exitoso
-           
-            response.sendRedirect("principal.jsp");
+            PrintWriter out = response.getWriter();
+            out.println("dirigir");
+            
         }
         
         else
@@ -82,8 +81,12 @@ public class login extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException, IOException 
+    {
+        HttpSession sesion = request.getSession();
+        sesion.invalidate();
+        response.sendRedirect("index.jsp");
+        
     }
 
     /**
