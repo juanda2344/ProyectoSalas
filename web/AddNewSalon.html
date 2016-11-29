@@ -9,30 +9,34 @@ and open the template in the editor.
         <title>Agregar Salon</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <script src="http://code.jquery.com/jquery-latest.js"></script>
+          <script type="text/javascript" src="js/contenido.js"></script>
     </head>
     <body>
-        <h1>Agregar Sala</h1>
+        <h2>Agregar Sala</h2>
         <div style="width: 900px; margin-left: auto; margin-right: auto ">
-            <form action ="JSP/ManagerAddNewSalon.jsp" method = "post">
-            Nombre:<br>
-            <input type ="text" name="name" style="width:200px"><br>
-            Bloque: <br>
-            <input type="text" name="block" style ="width:200px"><br>
+            
+            Edificio:<br>
+            <input type ="text" id="edificio" style="width:200px" required><br>
+            Identificador: <br>
+            <input type="text" id="id" style ="width:200px" required><br>
             Tipo: <br>
-            <select name="type">
-                <option value="Salon">Salon</option>
+            <select id="tipo" style ="width:150px" required>
+                <option value="Salon" >Salon</option>
                 <option value="Laboratorio">Laboratorio</option>
                 <option value="Sala">Sala</option>
             </select><br>
             Beam: <br>
-            <select  name="beam">
+            <select  id="beam" style ="width:100px" required >
                 <option value="Si">Si</option>
                 <option value="No">No</option>
             </select><br>
-            Comentarios: <br>
-            <input type="text" name="comment" style="width: 200px; height: 150px">
-            <input type="submit" value="Enviar">
-        </form>
+            Computadores: <br>
+            <input type="text" id="computadores" style="width: 100px" required><br>
+            Sillas: <br>
+            <input type="text" id="sillas" style="width: 100px" required><br>
+            <input type="submit"  id="adicionarSala" value="Enviar">
+       
         </div>
     </body>
 </html>

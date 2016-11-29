@@ -23,7 +23,7 @@ public class CRUDSalones {
             
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
-              System.out.println("Error comsultando la lista de salas el error es: " + ex.getMessage());
+              System.out.println("Error insertando la lista de salas el error es: " + ex.getMessage());
         }
         
     }
@@ -31,14 +31,15 @@ public class CRUDSalones {
     public static List<Salones> getAll(){
         List<Salones> ls = new LinkedList<>();
         try {
-            ResultSet rs = DBUtils.getPreparedStatement("select * from Salon").executeQuery();
+            ResultSet rs = DBUtils.getPreparedStatement("select * from Sala").executeQuery();
             while(rs.next()){
+                System.out.println("sadfasfsdfsdf");
                 Salones s = new Salones(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
                 ls.add(s);
             }
             
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(CRUDSalones.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
         
         return ls;

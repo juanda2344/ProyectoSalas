@@ -34,7 +34,9 @@ public class MostrarSalones extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
+        System.out.println("entrooo");
         request.setAttribute("MostrarSalones", CRUDSalones.getAll());
+        System.out.println(CRUDSalones.getAll().size());
         RequestDispatcher rd = request.getRequestDispatcher("MostrarSalones.jsp");
         rd.forward(request,response);
        

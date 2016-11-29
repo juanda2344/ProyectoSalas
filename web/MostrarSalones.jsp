@@ -34,6 +34,7 @@
                         <td>${p.computadores}</td>
                         <td>${p.sillas}</td>
                         <td>
+                           
                             <a href="edit?id=${p.edificio}&id2=${p.identificador}&n=4">Edit</a>
                             <a href="delete?id=${p.edificio}&id2=${p.identificador}&n=4">Delete</a>
                         </td>

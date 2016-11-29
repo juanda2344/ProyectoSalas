@@ -79,7 +79,7 @@ public class Editar extends HttpServlet {
            RequestDispatcher rd = request.getRequestDispatcher("EditarProfesor.jsp");  
                try 
            {
-               System.out.println("yes");
+            
             rd.forward(request, response);
            } 
               catch (ServletException | IOException ex)
@@ -96,16 +96,15 @@ public class Editar extends HttpServlet {
            String idTemp2 = request.getParameter("id2");
            request.setAttribute("getSalonByID", CRUDSalones.getSalonByID(idTemp,idTemp2));
            RequestDispatcher rd = request.getRequestDispatcher("EditarSalon.jsp");  
-            System.out.println("no puede ser");
+           
                try 
            {
-               System.out.println("dkdkdkdkdkdk");
+              
             rd.forward(request, response);
            } 
               catch (ServletException | IOException ex)
            {
-               System.out.println("2");
-               System.out.println("aqui"+ex.getMessage());
+           
             Logger.getLogger(Editar.class.getName()).log(Level.SEVERE, null, ex);
            }
         }

@@ -41,7 +41,7 @@
 										<a href="#">Salas</a>
 										<ul>
 											<li><a href="#" id="addSala">Adicionar</a></li>
-											<li><a href="#">Consultar, Eliminar, Editar</a></li>
+											<li><a href="#" id="ConsultarSalas">Consultar, Eliminar, Editar</a></li>
 											<li>
 												<a href="#">Reservar</a>
 												<ul>

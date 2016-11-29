@@ -52,6 +52,55 @@ $(function ()
                 $('#error').html('Verifique sus contraseñas');
             }
     });
+    
+      $('#adicionarSala').click(function (event)
+    {
+        
+        var edificio = $('#edificio').val();
+        var id = $('#id').val();
+        var tipo = $('#tipo').val();
+        var beam = $('#beam').val();    
+        var computadores = $('#computadores').val();
+        var sillas = $('#sillas').val();
+        
+       
+        
+            if(edificio != '' || id !='')
+            {
+                $.post('JSP/ManagerAddNewSalon.jsp', 
+			{
+				edificio :edificio,
+                                id :id,
+                                tipo :tipo,
+				beam: beam,
+                                computadores: computadores,
+                                sillas:sillas
+                                
+			}, function(responseText) 
+			{
+                                alert(responseText);
+				$('#content').html(responseText);
+			});
+            }
+            else
+            {
+                $('#edificio').attr('style', 'background:#3CF693');
+                $('#id').attr('style', 'background:#3CF693');
+                
+            }
+    });
+    
+    
+      $('#ConsultarSalas').click(function (event)
+    {
+        
+                $.post('/ProyectoSalas/Mostrars', function(data) 
+			{
+                            $('#content').html(data);
+			});
+            
+           
+    });
 
 
 });

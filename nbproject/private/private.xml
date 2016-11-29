@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/principal.jsp</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/addProfesores.html</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/js/login.js</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/src/java/servlet/login.java</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/EditarProfesor.jsp</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/index.jsp</file>
+            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/src/java/modelo/Salones.java</file>
+            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/JSP/ManagerAddNewSalon.jsp</file>
+            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/JSP/ManagerAddProfesor.jsp</file>
+            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/AddNewSalon.html</file>
+            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/src/java/servlet/MostrarSalones.java</file>
+            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/JSP/ManagerEditSalon.jsp</file>
+            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/src/java/Conexion/DBUtils.java</file>
         </group>
     </open-files>
 </project-private>

@@ -10,16 +10,23 @@
     </head>
     <body>
         <% 
-            String name= request.getParameter("name");
-            String block=request.getParameter("block");
-            String type=request.getParameter("type");
+               
+            String edificio= request.getParameter("edificio");
+            String id=request.getParameter("id");
+            String tipo=request.getParameter("tipo");
             String beam=request.getParameter("beam");
-            String comment=request.getParameter("comment");
+            String computadores=request.getParameter("computadores");
+            String sillas=request.getParameter("sillas");
             
-            Salones s= new Salones(name,block,type,beam,comment);
+           System.out.print(edificio);
+            System.out.print(id);
+            System.out.print(tipo);
+            System.out.print(beam);
+            System.out.print(computadores);
+            Salones s= new Salones(edificio,id,beam,tipo,computadores,sillas);
             CRUDSalones da= new CRUDSalones();
             da.addSalon(s);
-            response.sendRedirect("/Proyecto_Salas/Mostrars");
+            response.sendRedirect("/ProyectoSalas/Mostrars");
             
         %>
           
