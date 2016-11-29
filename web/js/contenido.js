@@ -59,7 +59,7 @@ $(function ()
         var pass1 = $('#contrasena').val();
         var pass2 = $('#rcontrasena').val();
         var correo = $('#correo').val();
-        var usuario = ('#usuario').val();
+        var usuario = $('#usuario').val();
 
         alert()
         if (pass1 == pass2) {

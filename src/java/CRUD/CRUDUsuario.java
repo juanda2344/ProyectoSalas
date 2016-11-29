@@ -112,7 +112,7 @@ public class CRUDUsuario
     {
         try 
         {
-            String sql = "update usuario SET nombre = ?, apellidos = ?, contrasena = ?, correo = ?" + " where nameId = ?";
+            String sql = "update usuario SET nombres = ?, apellidos = ?, contrasena = ?, correo = ?" + " where nameId = ?";
             PreparedStatement ps= DBUtils.getPreparedStatement(sql);
             ps.setString(1, nombre);
             ps.setString(2, apellidos);
