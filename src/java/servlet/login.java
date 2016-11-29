@@ -42,13 +42,11 @@ public class login extends HttpServlet {
         String usu, pass;
         usu = request.getParameter("username");
         pass = request.getParameter("password");
-        System.out.println(usu);
-        System.out.println(pass);
         List<Usuario> ls=CRUD.CRUDUsuario.login(usu, pass);
-        System.out.println(ls.size());
+       
         if(ls.size()!=0)
         {
-            System.out.println("pasa");
+            
             //si coincide usuario y password y además no hay sesión iniciada
             sesion.setAttribute("usuario", usu);
             //redirijo a página con información de login exitoso
@@ -59,9 +57,9 @@ public class login extends HttpServlet {
         
         else
         {
-            System.out.println("entraaqui");
+          
             PrintWriter out = response.getWriter();
-            out.println("<div >Error de usuario o contraseña</div>");
+            out.println("<div >Error de usuario o contrase&ntilde;a</div>");
             
         }
         

@@ -93,8 +93,8 @@ public class Editar extends HttpServlet {
         {
            
            
-            System.out.println("1");
-           request.setAttribute("getSalonByID", CRUDSalones.getSalonByID(idTemp));
+           String idTemp2 = request.getParameter("id2");
+           request.setAttribute("getSalonByID", CRUDSalones.getSalonByID(idTemp,idTemp2));
            RequestDispatcher rd = request.getRequestDispatcher("EditarSalon.jsp");  
             System.out.println("no puede ser");
                try 

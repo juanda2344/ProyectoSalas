@@ -13,15 +13,17 @@ public class CRUDSalones {
     
     public void addSalon(Salones n){
         try {
-            PreparedStatement ps = DBUtils.getPreparedStatement("insert into Salon values (?,?,?,?,?)");
-            ps.setString(1,n.getName());
-            ps.setString(2, n.getBlock());
-            ps.setString(3, n.getType());
-            ps.setString(4, n.getBeam());
-            ps.setString(5,n.getComment());
+            PreparedStatement ps = DBUtils.getPreparedStatement("insert into Sala values (?,?,?,?,?,?)");
+            ps.setString(1,n.getEdificio());
+            ps.setString(2, n.getIdentificador());
+            ps.setString(3, n.getBeam());
+            ps.setString(4,n.getTipo());
+            ps.setString(5, n.getComputadores());
+            ps.setString(6,n.getSillas());
+            
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
-              System.out.println("Error comsultando la lista de profesores el error es: " + ex.getMessage());
+              System.out.println("Error comsultando la lista de salas el error es: " + ex.getMessage());
         }
         
     }
@@ -31,7 +33,7 @@ public class CRUDSalones {
         try {
             ResultSet rs = DBUtils.getPreparedStatement("select * from Salon").executeQuery();
             while(rs.next()){
-                Salones s = new Salones(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
+                Salones s = new Salones(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
                 ls.add(s);
             }
             
@@ -43,14 +45,14 @@ public class CRUDSalones {
     }
     
     //---------
-        public static List<Salones> getSalonByID(String nombre){
+        public static List<Salones> getSalonByID(String edificio,String identificador){
         List<Salones> ls = new LinkedList<>();
-        String sql = "select * from Salon where nombre = " +"'"+nombre+"'";
+        String sql = "select * from Sala where edificio = " +"'"+edificio+"' and identificador = " +"'"+identificador+"' ";
         try {
             ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();
             while(rs.next()){
                 System.out.println(rs.getString(1));
-                Salones s = new Salones(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5));
+                Salones s = new Salones(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
                 ls.add(s);
             }
             
@@ -61,18 +63,18 @@ public class CRUDSalones {
         return ls;
     }
         
-    public void edit(String name, String block, String type, String beam, String comment){
-        String sql = "update Salon set nombre= ?, bloque = ? , tipo = ? , beam = ?, comentario = ?" + " where nombre = ?";
+    public void edit(String beam, String tipo, String computadores, String sillas,String edificio,String identificador){
+        String sql = "update Sala set beam= ?, tipo = ? , computadores = ? , sillas = ?" + " where edificio = ? and identificador=?";
         PreparedStatement  ps;
         System.out.println("enyta");
         try {
             ps = DBUtils.getPreparedStatement(sql);
-            ps.setString(1, name);
-            ps.setString(2, block);
-            ps.setString(3, type);
-            ps.setString(4, beam);
-            ps.setString(5, comment);
-            ps.setString(6, name);
+            ps.setString(1, beam);
+            ps.setString(2, tipo);
+            ps.setString(3, computadores);
+            ps.setString(4, sillas);
+            ps.setString(5, edificio);
+            ps.setString(6, identificador);
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(CRUDSalones.class.getName()).log(Level.SEVERE, null, ex);
@@ -82,11 +84,12 @@ public class CRUDSalones {
     }
     
     
-    public void delete(String nombre){
+    public void delete(String edificio,String identificador){
         try {
-            String sql = "delete Salon where nombre= ?";
+            String sql = "delete Salon where edificio= ? and identificador=?";
             PreparedStatement ps = DBUtils.getPreparedStatement(sql);
-            ps.setString(1, nombre);
+            ps.setString(1, edificio);
+            ps.setString(2, identificador);
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(CRUDSalones.class.getName()).log(Level.SEVERE, null, ex);

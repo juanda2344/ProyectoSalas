@@ -1,51 +1,20 @@
 
 package modelo;
 public class Salones {
-    private String name;
-    private String block;
-    private String type;
+    private String edificio;
+    private String identificador;
     private String beam;
-    private String comment;
+    private String tipo;
+    private String computadores;
+    private String sillas;
 
-    public Salones( String name, String block, String type, String beam, String comment) {
-        this.name = name;
-        this.block = block;
-        this.type = type;
-        this.beam = beam;
-        this.comment = comment;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-    
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getBlock() {
-        return block;
-    }
-
-    public void setBlock(String block) {
-        this.block = block;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public Salones(String edificio, String identificador,String beam, String tipo, String computadores, String sillas) {
+        this.edificio = edificio;
+        this.identificador = identificador;
+        this.beam=beam;
+        this.tipo = tipo;
+        this.computadores = computadores;
+        this.sillas = sillas;
     }
 
     public String getBeam() {
@@ -55,6 +24,49 @@ public class Salones {
     public void setBeam(String beam) {
         this.beam = beam;
     }
+ 
+    public String getEdificio() {
+        return edificio;
+    }
+
+    public void setEdificio(String edificio) {
+        this.edificio = edificio;
+    }
+
+    public String getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getComputadores() {
+        return computadores;
+    }
+
+    public void setComputadores(String computadores) {
+        this.computadores = computadores;
+    }
+
+    public String getSillas() {
+        return sillas;
+    }
+
+    public void setSillas(String sillas) {
+        this.sillas = sillas;
+    }
+
+   
+
     
     
     

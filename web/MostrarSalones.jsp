@@ -16,20 +16,26 @@
         <div style="width: 1200px; margin-left: auto; margin-right: auto;">
             <table cellpadding="10">
                 <tr>
-                    <th>Nombre</th>
-                    <th>Bloque</th>
-                    <th>Tipo</th>
+                    <th>Edificio</th>
+                    <th>Identificador</th>
                     <th>Beam</th>
+                    <th>Tipo</th>
+                    <th>Computadores</th>
+                    <th>Sillas</th>
+
+
                 </tr>
                 <c:forEach items="${MostrarSalones}" var="p">
                     <tr>
-                        <td>${p.name}</td>
-                        <td>${p.block}</td>
-                        <td>${p.type}</td>
+                        <td>${p.edificio}</td>
+                        <td>${p.identificador}</td>
                         <td>${p.beam}</td>
+                        <td>${p.tipo}</td>
+                        <td>${p.computadores}</td>
+                        <td>${p.sillas}</td>
                         <td>
-                            <a href="edit?id=${p.name}&n=4">Edit</a>
-                            <a href="delete?id=${p.name}&n=4">Delete</a>
+                            <a href="edit?id=${p.edificio}&id2=${p.identificador}&n=4">Edit</a>
+                            <a href="delete?id=${p.edificio}&id2=${p.identificador}&n=4">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>

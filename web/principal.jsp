@@ -13,6 +13,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+                <script src="http://code.jquery.com/jquery-latest.js"></script>
+                <script type="text/javascript" src="js/login.js"></script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body class="homepage">
@@ -32,11 +34,11 @@
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li class="current"><a href="index.html">Inicio</a></li>
+									<li class="current"><a href="principal.jsp">Inicio</a></li>
 									<li>
 										<a href="#">Salas</a>
 										<ul>
-											<li><a href="#">Adicionar</a></li>
+											<li><a href="#" id="addSala">Adicionar</a></li>
 											<li><a href="#">Consultar, Eliminar, Editar</a></li>
 											<li>
 												<a href="#">Reservar</a>
