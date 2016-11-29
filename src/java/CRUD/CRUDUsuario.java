@@ -28,13 +28,13 @@ public class CRUDUsuario
       {
         try 
         {
-            PreparedStatement ps = DBUtils.getPreparedStatement("insert into usuario values(?,?,?,?)");
-            ps.setString(1, n.getNombre());
-            ps.setString(2, n.getApellidos());
-            ps.setString(3, n.getUsuario());
+            PreparedStatement ps = DBUtils.getPreparedStatement("insert into Usuario values(?,?,?,?,?)");
+            ps.setString(1, n.getUsuario());
+            ps.setString(2, n.getCorreo());
+            ps.setString(3, n.getNombre());
+            ps.setString(4, n.getApellidos());
             ps.setString(4, n.getContrasena());
             ps.executeUpdate();
-            
         } 
         catch (ClassNotFoundException | SQLException ex)
         {
@@ -51,7 +51,7 @@ public class CRUDUsuario
             ResultSet rs = DBUtils.getPreparedStatement("select * from usuario").executeQuery();
             while(rs.next())
             {
-                Usuario n = new Usuario(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                Usuario n = new Usuario(rs.getString(3), rs.getString(4), rs.getString(1), rs.getString(5), rs.getString(2));
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex)
@@ -72,7 +72,7 @@ public class CRUDUsuario
             ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();
             while(rs.next())
             {
-                Usuario n = new Usuario(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                Usuario n = new Usuario(rs.getString(3), rs.getString(4), rs.getString(1), rs.getString(5), rs.getString(2));
                 ls.add(n);
             }
         } 
@@ -94,7 +94,7 @@ public class CRUDUsuario
             ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();
             while(rs.next())
             {
-                Usuario n = new Usuario(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                Usuario n = new Usuario(rs.getString(3), rs.getString(4), rs.getString(1), rs.getString(5), rs.getString(2));
                 ls.add(n);
             }
         } 

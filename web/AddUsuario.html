@@ -1,34 +1,20 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>Adicionar</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <h1>Adicionar Nuevo Usuario</h1>
-        <div style="width: 900px; margin-left: auto; margin-right: auto">
-            <form action="JSP/ManagerAddUsuario.jsp" method="post">
+<div class="login-box animated fadeInUp">
+                <div class="box-header">
+                    <h2>Agregar Nuevo Usuario</h2>
+                </div>
                 Nombre:<br>
-                <input type="text" name="nombre" style="width: 200px"><br>
+                <input type="text" name="nombre" ><br>
                 Apellidos:<br>
-                <input type="text" name="apellidos" style="width: 200px"><br>
+                <input type="text" id="apellidos"><br>
                 Usuario:<br>
-                <input type="text" name="usuario" style="width: 200px"><br>
+                <input type="text" id="usuario" ><br>
                 Contraseña:<br>
-                <input type="password" name="contrasena" style="width: 200px"><br>
+                <input type="email" id="correo" ><br>
                 Repetir Contraseña:<br>
-                <input type="password" name="rcontrasena" style="width: 200px"><br>
-               
-                <input type="submit" value="Submit">
-            </form>
-            <!--Complete Interface Addnew.-->
-        </div>
+                <input type="password" id="contrasena" ><br>
+                Repetir Contraseña:<br>
+                <input type="password" id="rcontrasena"><br>
 
-    </body>
-</html>
+                <button type="submit" id="envio">Ingresar</button>
+                <p id="error"></p>
+            </div>

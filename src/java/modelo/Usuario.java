@@ -17,12 +17,22 @@ public class Usuario
     private String apellidos;
     private String usuario;
     private String contrasena;
+    private String correo;
 
-    public Usuario(String nombre, String apellidos, String usuario, String contrasena) {
+    public Usuario(String nombre, String apellidos, String usuario, String contrasena, String correo) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.usuario = usuario;
         this.contrasena = contrasena;
+        this.correo = correo;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
     
     

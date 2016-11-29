@@ -12,9 +12,11 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+                <link rel="stylesheet" href="css/animate.css">
 		<link rel="stylesheet" href="assets/css/main.css" />
                 <script src="http://code.jquery.com/jquery-latest.js"></script>
-                <script type="text/javascript" src="js/login.js"></script>
+               <script type="text/javascript" src="js/login.js"></script>
+               <script type="text/javascript" src="js/contenido.js"></script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body class="homepage">
@@ -54,7 +56,7 @@
 									<li>
 										<a href="#">Profesores</a>
 										<ul>
-											<li><a href="#">Adicionar</a></li>
+											<li><a href="#" id="adicionarProfe">Adicionar</a></li>
 											<li><a href="#">Consultar, Eliminar, Editar</a></li>
 											<li>
 												<a href="#">Consultar Salas Reservadas</a>
