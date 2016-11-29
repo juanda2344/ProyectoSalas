@@ -19,7 +19,9 @@ $(function ()
                        $('#content').html(data);
                              });
     });
-
+    
+     
+    
     $('#envio').click(function (event)
     {
         
@@ -54,4 +56,6 @@ $(function ()
 
 });
 
-
+function myFuction(link){
+       alert($('#modificarUsuario').attr('href')); 
+}

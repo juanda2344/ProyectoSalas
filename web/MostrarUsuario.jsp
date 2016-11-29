@@ -11,6 +11,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript" src="js/contenido.js"></script>
         <title>usuarios</title>
     </head>
     <body>
@@ -32,8 +34,8 @@
                         
                         <td>
                     
-                            <a href="edit?id=${p.usuario}&n=2">Modificar</a>
-                            <a href="delete?id=${p.usuario}&n=2">Eliminar</a>
+                            <a href="edit?id=${p.usuario}&n=2" onclick="myFuction('asasas')" id="modificarUsuario">Modificar</a>
+                            <a href="delete?id=${p.usuario}&n=2" id="deleteUsuario">Eliminar</a>
                         </td>
                     </tr>
                 </c:forEach>

@@ -37,8 +37,8 @@
                         <td>${p.semestre}</td>
                         <td>${p.telefono}</td>
                         <td>
-                            <a href="edit?id=${p.documento}&n=1">Edit</a>
-                            <a href="delete?id=${p.documento}&n=1">Delete</a>
+                            <a onclick="myFunction(edit?id=${p.documento}&n=1)">Edit</a>
+                            <a onclick="myFunction(delete?id=${p.documento}&n=1)">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>
