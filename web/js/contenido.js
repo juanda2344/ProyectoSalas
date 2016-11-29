@@ -13,6 +13,13 @@ $(function ()
         });
     });
 
+    $('#adicionarMonitor').click(function (event) {
+        $.post('AddMonitor.html', function (data)
+        {
+            $('#content').html(data);
+        });
+    });
+
     $('#consultProfe').click(function (event) {
         $.post('/ProyectoSalas/mostraru', function (data)
         {
@@ -20,7 +27,14 @@ $(function ()
         });
     });
 
-    $('#envio').click(function (event)
+    $('#consultMonitor').click(function (event) {
+        $.post('/ProyectoSalas/MostrarMonitores', function (data)
+        {
+            $('#content').html(data);
+        });
+    });
+
+    $('#addUsuario').click(function (event)
     {
 
         var pass1 = $('#contrasena').val();
@@ -49,54 +63,108 @@ $(function ()
             $('#error').html('Verifique sus contraseñas');
         }
     });
-    
-      $('#adicionarSala').click(function (event)
+
+    $('#addMonitor').click(function (event)
     {
-        
+        var nombre = $('#nombre').val();
+        var apellidos = $('#apellidos').val();
+        var documento = $('#documento').val();
+        var semestre = $('#semestre').val();
+        var telefono = $('#telefono').val();
+        var carrera = $('#carrera').val();
+        var correo = $('#correo').val();
+
+        $.post('JSP/ManagerAddMonitor.jsp',
+                {
+                    nombre: nombre,
+                    apellidos: apellidos,
+                    documento: documento,
+                    semestre: semestre,
+                    telefono: telefono,
+                    carrera: carrera,
+                    correo: correo
+                }, function (responseText)
+        {
+            $('#content').html(responseText);
+        });
+    });
+
+    $('#adicionarSala').click(function (event)
+    {
+
         var edificio = $('#edificio').val();
         var id = $('#id').val();
         var tipo = $('#tipo').val();
-        var beam = $('#beam').val();    
+        var beam = $('#beam').val();
         var computadores = $('#computadores').val();
         var sillas = $('#sillas').val();
-        
-       
-        
-            if(edificio != '' || id !='')
+
+
+
+        if (edificio != '' || id != '')
+        {
+            $.post('JSP/ManagerAddNewSalon.jsp',
+                    {
+                        edificio: edificio,
+                        id: id,
+                        tipo: tipo,
+                        beam: beam,
+                        computadores: computadores,
+                        sillas: sillas
+
+                    }, function (responseText)
             {
-                $.post('JSP/ManagerAddNewSalon.jsp', 
-			{
-				edificio :edificio,
-                                id :id,
-                                tipo :tipo,
-				beam: beam,
-                                computadores: computadores,
-                                sillas:sillas
-                                
-			}, function(responseText) 
-			{
-                                alert(responseText);
-				$('#content').html(responseText);
-			});
-            }
-            else
-            {
-                $('#edificio').attr('style', 'background:#3CF693');
-                $('#id').attr('style', 'background:#3CF693');
-                
-            }
+                alert(responseText);
+                $('#content').html(responseText);
+            });
+        } else
+        {
+            $('#edificio').attr('style', 'background:#3CF693');
+            $('#id').attr('style', 'background:#3CF693');
+
+        }
     });
-    
-    
-      $('#ConsultarSalas').click(function (event)
+
+
+    $('#ConsultarSalas').click(function (event)
     {
+
+        $.post('/ProyectoSalas/Mostrars', function (data)
+        {
+            $('#content').html(data);
+        });
+
+
+    });
+
+    
+    $('#modificarMonitor').click(function (event)
+    {
+
+        var nombre = $('#nombre').val();
+        var apellidos = $('#apellidos').val();
+        var documento = $('#documento').val();
+        var semestre = $('#semestre').val();
+        var telefono = $('#telefono').val();
+        var carrera = $('#carrera').val();
+        var correo = $('#correo').val();
         
-                $.post('/ProyectoSalas/Mostrars', function(data) 
-			{
-                            $('#content').html(data);
-			});
-            
-           
+        alert(documento);
+
+        $.post('JSP/ManagerEditMonitor.jsp',
+                {
+                    nombre: nombre,
+                    apellidos: apellidos,
+                    documento: documento,
+                    semestre: semestre,
+                    correo: correo,
+                    telefono: telefono,
+                    carrera: carrera
+                }, function (responseText)
+        {            
+            alert(responseText);
+            $('#content').html(responseText);
+        });
     });
 
 
@@ -110,9 +178,7 @@ $(function ()
         var correo = $('#correo').val();
         var usuario = $('#usuario').val();
 
-        alert()
         if (pass1 == pass2) {
-            alert('amsla');
             $.post('JSP/ManagerEditUsuario.jsp',
                     {
                         nombre: nombre,
@@ -122,7 +188,6 @@ $(function ()
                         usuario: usuario
                     }, function (responseText)
             {
-                alert(responseText);
                 $('#content').html(responseText);
             });
         } else {
@@ -133,7 +198,7 @@ $(function ()
     });
 });
 
-function myFuctionEdit(link) {
+function myFunctionEdit(link) {
     var arreglo = link.split("?");
     $.get('edit',
             {
@@ -145,7 +210,7 @@ function myFuctionEdit(link) {
     });
 }
 
-function myFuctionDelete(link) {
+function myFunctionDelete(link) {
     var arreglo = link.split("?");
     $.get('delete',
             {
@@ -160,4 +225,3 @@ function myFuctionDelete(link) {
         }
     });
 }
-

@@ -19,11 +19,12 @@ public class Monitores
     private String correo;
     private String semestre;
     private String telefono;
+    private String carrera;
     
     
     //6 line
 
-    public Monitores(String nombre, String apellidos,String documento, String correo, String semestre, String telefono)
+    public Monitores(String nombre, String apellidos,String documento, String correo, String semestre, String telefono, String carrera)
     {
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -31,7 +32,18 @@ public class Monitores
         this.correo = correo;
         this.semestre = semestre;
         this.telefono = telefono;
+        this.carrera = carrera;
     }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {
+        this.carrera = carrera;
+    }
+    
+        
 
     public String getDocumento() 
     {

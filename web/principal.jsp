@@ -67,8 +67,8 @@
 									<li>
 										<a href="#">Monitores</a>
 										<ul>
-											<li><a href="#">Adicionar</a></li>
-											<li><a href="#">Consultar, Eliminar, Editar</a></li>
+											<li><a href="#" id="adicionarMonitor">Adicionar</a></li>
+											<li><a href="#" id="consultMonitor">Consultar, Eliminar, Editar</a></li>
 											<li>
 												<a href="#">Borrar Todos</a>
 											</li>

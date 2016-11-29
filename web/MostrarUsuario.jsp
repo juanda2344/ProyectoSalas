@@ -34,8 +34,8 @@
                         
                         <td>
                     
-                            <a href="#" onclick="myFuctionEdit('${p.usuario}?2')">Modificar</a>
-                            <a href="#" onclick="myFuctionDelete('${p.usuario}?2')">Eliminar</a>
+                            <a href="#" onclick="myFunctionEdit('${p.usuario}?2')">Modificar</a>
+                            <a href="#" onclick="myFunctionDelete('${p.usuario}?2')">Eliminar</a>
                         </td>
                     </tr>
                 </c:forEach>

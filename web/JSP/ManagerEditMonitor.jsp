@@ -20,11 +20,12 @@
             String correo = request.getParameter("correo");
             String semestre = request.getParameter("semestre");
             String telefono = request.getParameter("telefono");
+            String carrera = request.getParameter("carrera");
             
             CRUDMonitores da = new CRUDMonitores();
-            da.edit(nombre, apellidos, idTemp, correo, semestre,telefono);
+            da.edit(nombre, apellidos, idTemp, correo, semestre,telefono, carrera);
             
-            response.sendRedirect("/Proyecto_Salas/MostrarMonitores");
+            response.sendRedirect("/ProyectoSalas/MostrarMonitores");
         %>
     </body>
 </html>

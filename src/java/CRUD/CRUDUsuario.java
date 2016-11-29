@@ -65,7 +65,6 @@ public class CRUDUsuario
     
     public static List<Usuario> getUsuario(String us)
     {
-        System.out.println(us);
         List<Usuario> ls = new LinkedList<>();
         String sql = "select * from Usuario where nameId = " +"'"+us+"'";
         try {
