@@ -108,37 +108,40 @@ public class CRUDUsuario
     }
     
     
-    public void edit(String nombre, String apellidos, String usuario, String contrasena)
+    public void edit(String nombre, String apellidos, String usuario, String contrasena, String correo)
     {
         try 
         {
-            String sql = "update usuario SET nombre = ?, apellidos = ?, contrasena = ?" + " where usuari = ?";
+            String sql = "update usuario SET nombre = ?, apellidos = ?, contrasena = ?, correo = ?" + " where nameId = ?";
             PreparedStatement ps= DBUtils.getPreparedStatement(sql);
             ps.setString(1, nombre);
             ps.setString(2, apellidos);
             ps.setString(3,contrasena);
-            ps.setString(4, usuario);
+            ps.setString(4, correo);
+            ps.setString(5, usuario);
             ps.executeUpdate();
         } 
         catch (ClassNotFoundException | SQLException ex)
         {
-            Logger.getLogger(CRUDUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error Al Modificar Un Usuario " + ex.getMessage());
         }
         
     }
     
-    public void delete(String us)
+    public boolean delete(String us)
     {
         try 
         {
-            String sql = "delete usuario where usuari= ?";
+            String sql = "delete usuario where nameId  = ?";
             PreparedStatement ps = DBUtils.getPreparedStatement(sql);
             ps.setString(1, us);
             ps.executeUpdate();
+            return true;
         } 
         catch (ClassNotFoundException | SQLException ex) 
         {
-            Logger.getLogger(CRUDUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error Eliminando Un Usuario " + ex.getMessage());
+            return false;
         }
     }
     

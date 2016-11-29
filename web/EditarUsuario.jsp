@@ -11,22 +11,27 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Edit</title>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript" src="js/contenido.js"></script>
     </head>
     <body>
         <h1>Editar usuario</h1>
         <div style="width: 900px; margin-left: auto; margin-right: auto">
             <c:forEach items="${getNewsById}" var="p">
-                <form action="JSP/ManagerEditUsuario.jsp" method="post">
-                    <input type="hidden" name="usuario" value="${p.usuario}">
-                    Nombre:<br>
-                    <input type="text" value="${p.nombre}" name="nombre" style="width: 200px"><br>
-                    Apellidos:<br>
-                    <input type="text" value="${p.apellidos}" name="apellidos" style="width: 200px"><br>
-                    contrasena:<br>
-                    <input type="text" value="${p.contrasena}" name="contrasena" style="width: 200px"><br>
-                                     
-                    <input type="submit" value="Submit">
-                </form>
+                <input type="hidden" id="usuario" value="${p.usuario}">
+                Nombre:<br>
+                <input type="text" value="${p.nombre}" id="nombre" style="width: 200px"><br>
+                Apellidos:<br>
+                <input type="text" value="${p.apellidos}" id="apellidos" style="width: 200px"><br>
+                contraseña:<br>
+                <input type="text" value="${p.contrasena}" id="contrasena" style="width: 200px"><br>
+                confirmacion contraseña:<br>
+                <input type="text" value="" id="rcontrasena" style="width: 200px"><br>
+                correo:<br>
+                <input type="text" value="${p.correo}" id="correo" style="width: 200px"><br>
+
+                <button type="submit" id="modificarUsuario">Ingresar</button>
+                <p id="error"></p>
             </c:forEach>
 
         </div>
