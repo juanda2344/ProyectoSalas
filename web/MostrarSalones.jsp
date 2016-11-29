@@ -33,10 +33,11 @@
                         <td>${p.tipo}</td>
                         <td>${p.computadores}</td>
                         <td>${p.sillas}</td>
+                          
                         <td>
-                           
-                            <a href="edit?id=${p.edificio}&id2=${p.identificador}&n=4">Edit</a>
-                            <a href="delete?id=${p.edificio}&id2=${p.identificador}&n=4">Delete</a>
+                    
+                            <a href="#" onclick="myFuctionEditSalon('${p.edificio}?${p.identificador}?4')">Modificar</a>
+                            <a href="#" onclick="myFuctionDeleteSalon('${p.edificio}?${p.identificador}?4')">Eliminar</a>
                         </td>
                     </tr>
                 </c:forEach>

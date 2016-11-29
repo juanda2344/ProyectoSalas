@@ -85,15 +85,18 @@ public class CRUDSalones {
     }
     
     
-    public void delete(String edificio,String identificador){
+    public boolean delete(String edificio,String identificador){
         try {
-            String sql = "delete Salon where edificio= ? and identificador=?";
+            
+            String sql = "delete Sala where edificio= ? and identificador=?";
             PreparedStatement ps = DBUtils.getPreparedStatement(sql);
             ps.setString(1, edificio);
             ps.setString(2, identificador);
             ps.executeUpdate();
+            return true;
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(CRUDSalones.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
     }
     

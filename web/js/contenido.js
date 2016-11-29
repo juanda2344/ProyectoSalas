@@ -75,7 +75,7 @@ $(function ()
                                 
 			}, function(responseText) 
 			{
-                                alert(responseText);
+                                
 				$('#content').html(responseText);
 			});
             }
@@ -131,6 +131,35 @@ $(function ()
             $('#error').html('Verifique sus contraseñas');
         }
     });
+    
+      $('#EditarSalon').click(function (event)
+    {
+
+        var beam = $('#beam').val();
+        var tipo = $('#tipo').val();
+        var computadores = $('#computadores').val();
+        var sillas = $('#sillas').val();
+        var identificador=$('#id').val();
+        var edificio=$('#edificio').val();
+       
+
+      
+            $.post('JSP/ManagerEditSalon.jsp',
+                    {
+                        beam: beam,
+                        tipo: tipo,
+                        computadores: computadores,
+                        sillas: sillas,
+                        identificador:identificador,
+                        edificio:edificio
+                        
+                    }, function (responseText)
+            {
+                
+                $('#content').html(responseText);
+            });
+      
+    });
 });
 
 function myFuctionEdit(link) {
@@ -156,6 +185,40 @@ function myFuctionDelete(link) {
         if (responseText.trim() == 'error') {
             $('#mensaje').html('El Usuario No Se Puede Eliminar')
         } else {
+            $('#content').html(responseText);
+        }
+    });
+}
+
+function myFuctionEditSalon(link) {
+    var arreglo = link.split("?");
+    $.get('edit',
+            {
+                id: arreglo[0],
+                id2:arreglo[1],
+                n: arreglo[2]
+            }, function (responseText)
+    {
+        $('#content').html(responseText);
+    });
+}
+
+function myFuctionDeleteSalon(link) {
+    var arreglo = link.split("?");
+    $.get('delete',
+            {
+                id: arreglo[0],
+                id2:arreglo[1],
+                n: arreglo[2]
+            }, function (responseText)
+    {
+        
+        if (responseText.trim() == 'error') 
+        {
+            
+            $('#mensaje').html('La Sala  no Se Puede Eliminar')
+        } else 
+        {
             $('#content').html(responseText);
         }
     });
