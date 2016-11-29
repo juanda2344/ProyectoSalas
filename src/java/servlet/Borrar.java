@@ -37,39 +37,36 @@ public class Borrar extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException {
-        
+
         String idTemp = request.getParameter("id");
         String op = request.getParameter("n");
-        
-        if("1".equals(op))
-        {
-        CRUDMonitores da = new CRUDMonitores();
-        da.delete(idTemp);
-        response.sendRedirect("/Proyecto_Salas/MostrarMonitores");
-        }
-        else if("2".equals(op))
-         {
-             CRUDUsuario da = new CRUDUsuario();
-             da.delete(idTemp);
-             response.sendRedirect("/Proyecto_Salas/mostraru");
-         }
-        else if("3".equals(op))
-        {
-           int id = Integer.parseInt(idTemp);
-           CRUDProfesores da = new CRUDProfesores();
-           da.delete(id);
-           response.sendRedirect("/Proyecto_Salas/mostrarp"); 
-        }
-        else
-        {
+
+        if ("1".equals(op)) {
+            CRUDMonitores da = new CRUDMonitores();
+            da.delete(idTemp);
+            response.sendRedirect("/Proyecto_Salas/MostrarMonitores");
+        } else if ("2".equals(op)) {
+            CRUDUsuario da = new CRUDUsuario();
+            boolean respuesta = da.delete(idTemp);
+            if (respuesta) {
+                response.sendRedirect("/ProyectoSalas/mostraru");
+            }
+            else{
+                PrintWriter out = response.getWriter();
+                out.println("error");
+            }
+        } else if ("3".equals(op)) {
+            int id = Integer.parseInt(idTemp);
+            CRUDProfesores da = new CRUDProfesores();
+            da.delete(id);
+            response.sendRedirect("/Proyecto_Salas/mostrarp");
+        } else {
             CRUDSalones da = new CRUDSalones();
             String idTemp2 = request.getParameter("id2");
-            da.delete(idTemp,idTemp2);
+            da.delete(idTemp, idTemp2);
             response.sendRedirect("/Proyecto_Salas/Mostrars");
         }
-        
-       
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

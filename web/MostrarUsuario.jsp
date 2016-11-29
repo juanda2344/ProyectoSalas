@@ -34,12 +34,13 @@
                         
                         <td>
                     
-                            <a href="edit?id=${p.usuario}&n=2" onclick="myFuction('asasas')" id="modificarUsuario">Modificar</a>
-                            <a href="delete?id=${p.usuario}&n=2" id="deleteUsuario">Eliminar</a>
+                            <a href="#" onclick="myFuctionEdit('${p.usuario}?2')">Modificar</a>
+                            <a href="#" onclick="myFuctionDelete('${p.usuario}?2')">Eliminar</a>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
+            <p id="mensaje" style="color:red"></p>
         </div>
     </body>
 </html>

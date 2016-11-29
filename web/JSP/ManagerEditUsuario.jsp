@@ -14,16 +14,17 @@
     </head>
     <body>
         <%
-            String idTemp = request.getParameter("usuario");
+            String correo = request.getParameter("correo");
             String nombre = request.getParameter("nombre");
             String apellidos = request.getParameter("apellidos");
             String contrasena = request.getParameter("contrasena");
-           
+            String usuario = request.getParameter("usuario");
+            
             
             CRUDUsuario da = new CRUDUsuario();
-            da.edit(nombre, apellidos,idTemp,contrasena);
+            da.edit(nombre, apellidos,usuario,contrasena, correo);
             
-            response.sendRedirect("/Proyecto_Salas/mostraru");
+            response.sendRedirect("/ProyectoSalas/mostraru");
         %>
     </body>
 </html>
