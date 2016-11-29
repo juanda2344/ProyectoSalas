@@ -22,13 +22,19 @@
             String apellidos = request.getParameter("apellidos");
             String usuario = request.getParameter("usuario");
             String contrasena= request.getParameter("contrasena");
+            String correo = request.getParameter("correo");
            
+            System.out.print(nombre);
+            System.out.print(apellidos);
+            System.out.print(usuario);
+            System.out.print(contrasena);
+            System.out.print(correo);
             
-           Usuario n = new Usuario(nombre,apellidos,usuario,contrasena);
+           Usuario n = new Usuario(nombre,apellidos,usuario,contrasena,correo);
            CRUDUsuario cm = new CRUDUsuario();
            cm.addNew(n);
             
-            response.sendRedirect("/Proyecto_Salas/mostraru");
+            response.sendRedirect("/ProyectoSalas/mostraru");
         %>
         
     </body>

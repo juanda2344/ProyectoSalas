@@ -33,12 +33,12 @@ public class CRUDUsuario
             ps.setString(2, n.getCorreo());
             ps.setString(3, n.getNombre());
             ps.setString(4, n.getApellidos());
-            ps.setString(4, n.getContrasena());
+            ps.setString(5, n.getContrasena());
             ps.executeUpdate();
         } 
         catch (ClassNotFoundException | SQLException ex)
         {
-            Logger.getLogger(CRUDUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error en consulta el error es: " + ex.getMessage());
         }
     }
     

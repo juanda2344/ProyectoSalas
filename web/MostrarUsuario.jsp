@@ -14,7 +14,7 @@
         <title>usuarios</title>
     </head>
     <body>
-        <div style="width: 1200px; margin-left: auto; margin-right: auto;">
+        <div style="width: 1200px; margin: auto;">
             <table cellpadding="10">
                 <tr>
                     <th>Nombre</th>
@@ -29,7 +29,9 @@
                         <td>${p.apellidos}</td>
                         <td>${p.usuario}</td>
                         <td>${p.contrasena}</td>
+                        
                         <td>
+                    
                             <a href="edit?id=${p.usuario}&n=2">Modificar</a>
                             <a href="delete?id=${p.usuario}&n=2">Eliminar</a>
                         </td>
