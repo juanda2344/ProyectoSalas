@@ -10,34 +10,36 @@
 <html>
     <head>
         <title>Edit</title>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript" src="js/contenido.js"></script>
     </head>
     <body>
-        <h1>Editar Salon</h1>
+        <h2>Editar Salon</h2>
         <div style="width: 900px; margin-left: auto; margin-right: auto">
       <c:forEach items="${getSalonByID}" var = "p">
-            <form action ="JSP/ManagerEditSalon.jsp" method = "post">
-               
-            Nombre:<br>
-            <input type ="text" value="${p.name}" name="name" style="width:200px"><br>
-            Bloque: <br>
-            <input type="text" value="${p.block}"name="block" style ="width:200px"><br>
+            
+            <input type="hidden" id="edificio" value="${p.edificio}">
+            <input type="hidden" id="id" value="${p.identificador}">
+            Computadores:<br>
+            <input type ="text" value="${p.computadores}" id="computadores" style="width:100px"><br>
+            Sillas:<br>
+            <input type ="text" value="${p.sillas}" id="sillas" style="width:100px"><br>
             Tipo: <br>
-            <select name="type">
-                <option value="${p.type}">${p.type}</option>
+            <select id="tipo">
+                <option value="${p.tipo}">Seleccionar</option>
                 <option value="Salon">Salon</option>
                 <option value="Laboratorio">Laboratorio</option>
                 <option value="Sala">Sala</option>
             </select><br>
             Beam: <br>
-            <select  name="beam">
-                <option value="${p.beam}">${p.beam}</option>
+            <select  id="beam">
+                <option value="${p.beam}">Seleccionar</option>
                 <option value="Si">Si</option>
                 <option value="No">No</option>
             </select><br>
-            Comentarios: <br>
-            <textarea name="comment" style="width: 200px; height: 150px">${p.comment}</textarea>
-            <input type="submit" value="Actualizar">
-        </form>
+         
+            <input type="submit" value="Actualizar" id="EditarSalon">
+        
         </c:forEach>
 
         </div>

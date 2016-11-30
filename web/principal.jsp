@@ -54,10 +54,19 @@
 										</ul>
 									</li>
 									<li>
-										<a href="#">Profesores</a>
+										<a href="#">Usuarios</a>
 										<ul>
 											<li><a href="#" id="adicionarProfe">Adicionar</a></li>
 											<li><a href="#" id="consultProfe">Consultar, Eliminar, Editar</a></li>
+											
+											
+										</ul>
+									</li>
+                                                                        <li>
+										<a href="#">Profesores</a>
+										<ul>
+											<li><a href="#" id="adicionarP">Adicionar</a></li>
+											<li><a href="#" id="consultP">Consultar, Eliminar, Editar</a></li>
 											<li>
 												<a href="#">Consultar Salas Reservadas</a>
 											</li>

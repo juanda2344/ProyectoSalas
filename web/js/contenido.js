@@ -103,26 +103,27 @@ $(function ()
 
         if (edificio != '' || id != '')
         {
-            $.post('JSP/ManagerAddNewSalon.jsp',
-                    {
-                        edificio: edificio,
-                        id: id,
-                        tipo: tipo,
-                        beam: beam,
-                        computadores: computadores,
-                        sillas: sillas
-
-                    }, function (responseText)
+                $.post('JSP/ManagerAddNewSalon.jsp', 
+			{
+				edificio :edificio,
+                                id :id,
+                                tipo :tipo,
+				beam: beam,
+                                computadores: computadores,
+                                sillas:sillas
+                                
+			}, function(responseText) 
+			{
+                                
+				$('#content').html(responseText);
+			});
+            }
+            else
             {
-                alert(responseText);
-                $('#content').html(responseText);
-            });
-        } else
-        {
-            $('#edificio').attr('style', 'background:#3CF693');
-            $('#id').attr('style', 'background:#3CF693');
-
-        }
+                $('#edificio').attr('style', 'background:#3CF693');
+                $('#id').attr('style', 'background:#3CF693');
+                
+            }
     });
 
 
@@ -196,6 +197,35 @@ $(function ()
             $('#error').html('Verifique sus contraseñas');
         }
     });
+    
+      $('#EditarSalon').click(function (event)
+    {
+
+        var beam = $('#beam').val();
+        var tipo = $('#tipo').val();
+        var computadores = $('#computadores').val();
+        var sillas = $('#sillas').val();
+        var identificador=$('#id').val();
+        var edificio=$('#edificio').val();
+       
+
+      
+            $.post('JSP/ManagerEditSalon.jsp',
+                    {
+                        beam: beam,
+                        tipo: tipo,
+                        computadores: computadores,
+                        sillas: sillas,
+                        identificador:identificador,
+                        edificio:edificio
+                        
+                    }, function (responseText)
+            {
+                
+                $('#content').html(responseText);
+            });
+      
+    });
 });
 
 function myFunctionEdit(link) {
@@ -225,3 +255,38 @@ function myFunctionDelete(link) {
         }
     });
 }
+
+function myFuctionEditSalon(link) {
+    var arreglo = link.split("?");
+    $.get('edit',
+            {
+                id: arreglo[0],
+                id2:arreglo[1],
+                n: arreglo[2]
+            }, function (responseText)
+    {
+        $('#content').html(responseText);
+    });
+}
+
+function myFuctionDeleteSalon(link) {
+    var arreglo = link.split("?");
+    $.get('delete',
+            {
+                id: arreglo[0],
+                id2:arreglo[1],
+                n: arreglo[2]
+            }, function (responseText)
+    {
+        
+        if (responseText.trim() == 'error') 
+        {
+            
+            $('#mensaje').html('La Sala  no Se Puede Eliminar')
+        } else 
+        {
+            $('#content').html(responseText);
+        }
+    });
+}
+

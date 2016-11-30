@@ -67,8 +67,20 @@ public class Borrar extends HttpServlet {
         } else {
             CRUDSalones da = new CRUDSalones();
             String idTemp2 = request.getParameter("id2");
-            da.delete(idTemp, idTemp2);
-            response.sendRedirect("/Proyecto_Salas/Mostrars");
+            System.out.println(idTemp);
+            System.out.println(idTemp2);
+            boolean respuesta=da.delete(idTemp, idTemp2);
+            System.out.println(respuesta);
+               if (respuesta) 
+            {
+                response.sendRedirect("/ProyectoSalas/Mostrars");
+            }
+            else
+            {
+                PrintWriter out = response.getWriter();
+                out.println("error");
+            }
+            
         }
 
     }

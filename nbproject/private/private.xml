@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/src/java/modelo/Salones.java</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/JSP/ManagerAddNewSalon.jsp</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/JSP/ManagerAddProfesor.jsp</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/AddNewSalon.html</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/src/java/servlet/MostrarSalones.java</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/JSP/ManagerEditSalon.jsp</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/src/java/Conexion/DBUtils.java</file>
+            <file>file:/D:/Universidad/EsteSemestre/Software%202/Prog/ProyectoSalas/web/MostrarMonitores.jsp</file>
+            <file>file:/D:/Universidad/EsteSemestre/Software%202/Prog/ProyectoSalas/src/java/CRUD/CRUDUsuario.java</file>
+            <file>file:/D:/Universidad/EsteSemestre/Software%202/Prog/ProyectoSalas/src/java/modelo/Monitores.java</file>
+            <file>file:/D:/Universidad/EsteSemestre/Software%202/Prog/ProyectoSalas/src/java/servlet/Editar.java</file>
+            <file>file:/D:/Universidad/EsteSemestre/Software%202/Prog/ProyectoSalas/src/java/CRUD/CRUDMonitores.java</file>
+            <file>file:/D:/Universidad/EsteSemestre/Software%202/Prog/ProyectoSalas/web/principal.jsp</file>
+            <file>file:/D:/Universidad/EsteSemestre/Software%202/Prog/ProyectoSalas/src/java/servlet/Borrar.java</file>
+            <file>file:/D:/Universidad/EsteSemestre/Software%202/Prog/ProyectoSalas/web/EditarMonitores.jsp</file>
+            <file>file:/D:/Universidad/EsteSemestre/Software%202/Prog/ProyectoSalas/web/js/contenido.js</file>
+            <file>file:/D:/Universidad/EsteSemestre/Software%202/Prog/ProyectoSalas/web/AddUsuario.html</file>
         </group>
     </open-files>
 </project-private>

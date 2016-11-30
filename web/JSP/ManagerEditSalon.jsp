@@ -16,15 +16,16 @@
         <%
         
             
-            String name = request.getParameter("name");
-            String block = request.getParameter("block");
-            String type = request.getParameter("type");
-            String beam = request.getParameter("beam");
-            String comment = request.getParameter("comment");
+            String edificio= request.getParameter("edificio");
+            String id=request.getParameter("identificador");
+            String tipo=request.getParameter("tipo");
+            String beam=request.getParameter("beam");
+            String computadores=request.getParameter("computadores");
+            String sillas=request.getParameter("sillas");
             
             CRUDSalones da = new CRUDSalones();
-            da.edit(name, block, type, beam, comment);
-            response.sendRedirect("/Proyecto_Salas/Mostrars");
+            da.edit(beam,tipo,computadores,sillas,edificio,id);
+            response.sendRedirect("/ProyectoSalas/Mostrars");
         %>
     </body>
 </html>

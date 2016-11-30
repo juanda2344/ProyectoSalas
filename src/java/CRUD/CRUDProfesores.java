@@ -28,7 +28,7 @@ public class CRUDProfesores {
 
         try {
             PreparedStatement ps = DBUtils.getPreparedStatement("insert into Profesores (documento, nombres, apellidos, correo, telefono, cumpleanos) values (?,?,?,?,?,?)");
-            ps.setString(1, p.getCedula());
+            ps.setString(1, p.getDocumento());
             ps.setString(2, p.getNombres());
             ps.setString(3, p.getApellidos());
             ps.setString(4, p.getCorreo());

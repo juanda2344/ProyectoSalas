@@ -18,11 +18,7 @@
             String computadores=request.getParameter("computadores");
             String sillas=request.getParameter("sillas");
             
-           System.out.print(edificio);
-            System.out.print(id);
-            System.out.print(tipo);
-            System.out.print(beam);
-            System.out.print(computadores);
+         
             Salones s= new Salones(edificio,id,beam,tipo,computadores,sillas);
             CRUDSalones da= new CRUDSalones();
             da.addSalon(s);
