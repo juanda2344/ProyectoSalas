@@ -64,7 +64,7 @@ public class Borrar extends HttpServlet {
             CRUDProfesores da = new CRUDProfesores();
             da.delete(id);
             response.sendRedirect("/Proyecto_Salas/mostrarp");
-        } else {
+        } else if ("4".equals(op)){
             CRUDSalones da = new CRUDSalones();
             String idTemp2 = request.getParameter("id2");
             System.out.println(idTemp);
@@ -80,7 +80,15 @@ public class Borrar extends HttpServlet {
                 PrintWriter out = response.getWriter();
                 out.println("error");
             }
-            
+        }else{
+            CRUDMonitores da = new CRUDMonitores();
+            boolean respuesta = da.deleteAll();
+            if (respuesta) {
+                response.sendRedirect("/ProyectoSalas/MostrarMonitores");
+            } else {
+                PrintWriter out = response.getWriter();
+                out.println("error");
+            }
         }
 
     }

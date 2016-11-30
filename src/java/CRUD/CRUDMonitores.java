@@ -125,4 +125,24 @@ public class CRUDMonitores
         }
     }
     
+    public boolean deleteAll()
+    {
+        try 
+        {
+            String sql = "delete AsignarSalaMonitor";
+            PreparedStatement ps = DBUtils.getPreparedStatement(sql);
+            ps.executeUpdate();
+            
+            sql = "delete Monitores";
+            ps = DBUtils.getPreparedStatement(sql);
+            ps.executeUpdate();
+            return true;
+        } 
+        catch (ClassNotFoundException | SQLException ex) 
+        {
+            System.out.println("Error eliminando un monitor de la BD: " + ex.getMessage());
+            return false;
+        }
+    }
+    
 }

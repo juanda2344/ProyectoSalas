@@ -43,11 +43,14 @@
 											<li><a href="#" id="addSala">Adicionar</a></li>
 											<li><a href="#" id="ConsultarSalas">Consultar, Eliminar, Editar</a></li>
 											<li>
-												<a href="#">Reservar</a>
+												<a href="#">Reservas</a>
 												<ul>
-													<li><a href="#">Cambiar Reserva</a></li>
-													<li><a href="#">Ocupar Sala</a></li>
-													<li><a href="#">Desocupar Sala</a></li>
+													<li><a href="#">Profesores</a></li>
+                                                                                                        <ul>
+                                                                                                            <li><a href="#" id="adicionarReservaProfesor">Reservar Sala</a></li>    
+                                                                                                            <li><a href="#">Ver Reservas</a></li>    
+                                                                                                        </ul>
+													<li><a href="#">Reserva Entidad Externa</a></li>
 													</ul>
 											</li>
 											
@@ -78,9 +81,7 @@
 										<ul>
 											<li><a href="#" id="adicionarMonitor">Adicionar</a></li>
 											<li><a href="#" id="consultMonitor">Consultar, Eliminar, Editar</a></li>
-											<li>
-												<a href="#">Borrar Todos</a>
-											</li>
+											<li><a href="#" id="borrarAllMonitores" onclick="myFunctionDelete('null?5')">Borrar Todos</a></li>
 											
 										</ul>
 									</li>
