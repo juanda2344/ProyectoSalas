@@ -31,6 +31,7 @@
 								<h1><a href="index.html">CoordiSalas</a></h1>
 								<span>Facultad de Ingenierias</span>
                                                                 <p>Bienvenido ${sessionScope.usuario}</p>
+                                                                <input type="hidden" value="${sessionScope.usuario}" id="usuarioSesion">
 							</div>
 
 						<!-- Nav -->
@@ -43,21 +44,33 @@
 											<li><a href="#" id="addSala">Adicionar</a></li>
 											<li><a href="#" id="ConsultarSalas">Consultar, Eliminar, Editar</a></li>
 											<li>
-												<a href="#">Reservar</a>
+												<a href="#">Reservas</a>
 												<ul>
-													<li><a href="#">Cambiar Reserva</a></li>
-													<li><a href="#">Ocupar Sala</a></li>
-													<li><a href="#">Desocupar Sala</a></li>
+													<li><a href="#">Profesores</a></li>
+                                                                                                        <ul>
+                                                                                                            <li><a href="#" id="adicionarReservaProfesor">Reservar Sala</a></li>    
+                                                                                                            <li><a href="#" id="consultarReservaProfesor">Ver Reservas</a></li>    
+                                                                                                        </ul>
+													<li><a href="#">Reserva Entidad Externa</a></li>
 													</ul>
 											</li>
 											
 										</ul>
 									</li>
 									<li>
-										<a href="#">Profesores</a>
+										<a href="#">Usuarios</a>
 										<ul>
 											<li><a href="#" id="adicionarProfe">Adicionar</a></li>
 											<li><a href="#" id="consultProfe">Consultar, Eliminar, Editar</a></li>
+											
+											
+										</ul>
+									</li>
+                                                                        <li>
+										<a href="#">Profesores</a>
+										<ul>
+											<li><a href="#" id="adicionarP">Adicionar</a></li>
+											<li><a href="#" id="consultP">Consultar, Eliminar, Editar</a></li>
 											<li>
 												<a href="#">Consultar Salas Reservadas</a>
 											</li>
@@ -67,11 +80,9 @@
 									<li>
 										<a href="#">Monitores</a>
 										<ul>
-											<li><a href="#">Adicionar</a></li>
-											<li><a href="#">Consultar, Eliminar, Editar</a></li>
-											<li>
-												<a href="#">Borrar Todos</a>
-											</li>
+											<li><a href="#" id="adicionarMonitor">Adicionar</a></li>
+											<li><a href="#" id="consultMonitor">Consultar, Eliminar, Editar</a></li>
+											<li><a href="#" id="borrarAllMonitores" onclick="myFunctionDelete('null?5')">Borrar Todos</a></li>
 											
 										</ul>
 									</li>

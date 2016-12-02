@@ -7,6 +7,7 @@ package servlet;
 
 import CRUD.CRUDMonitores;
 import CRUD.CRUDProfesores;
+import CRUD.CRUDReservaProfesores;
 import CRUD.CRUDSalones;
 import CRUD.CRUDUsuario;
 import java.io.IOException;
@@ -38,79 +39,60 @@ public class Editar extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException
-    {
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
         String idTemp = request.getParameter("id");
         String op = request.getParameter("n");
-        if(op.equals("1"))
-        {
-           request.setAttribute("getNewsById", CRUDMonitores.getMonitorConDocumento(idTemp));
-           RequestDispatcher rd = request.getRequestDispatcher("EditarMonitores.jsp");
-              try 
-           {
-            rd.forward(request, response);
-           } 
-              catch (ServletException | IOException ex)
-           {
-            Logger.getLogger(Editar.class.getName()).log(Level.SEVERE, null, ex);
-           }
+        if (op.equals("1")) {
+            request.setAttribute("getNewsById", CRUDMonitores.getMonitorConDocumento(idTemp));
+            RequestDispatcher rd = request.getRequestDispatcher("EditarMonitores.jsp");
+            try {
+                rd.forward(request, response);
+            } catch (ServletException | IOException ex) {
+                Logger.getLogger(Editar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (op.equals("2")) {
+            request.setAttribute("getNewsById", CRUDUsuario.getUsuario(idTemp));
+            RequestDispatcher rd = request.getRequestDispatcher("EditarUsuario.jsp");
+            try {
+                rd.forward(request, response);
+            } catch (ServletException | IOException ex) {
+                Logger.getLogger(Editar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (op.equals("3")) {
+            request.setAttribute("getNewsByCedula", CRUDProfesores.getNewByCedula(idTemp));
+            RequestDispatcher rd = request.getRequestDispatcher("EditarProfesor.jsp");
+            try {
+
+                rd.forward(request, response);
+            } catch (ServletException | IOException ex) {
+
+                Logger.getLogger(Editar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (op.equals("4")) {
+
+            String idTemp2 = request.getParameter("id2");
+            request.setAttribute("getSalonByID", CRUDSalones.getSalonByID(idTemp, idTemp2));
+            RequestDispatcher rd = request.getRequestDispatcher("EditarSalon.jsp");
+
+            try {
+
+                rd.forward(request, response);
+            } catch (ServletException | IOException ex) {
+
+                Logger.getLogger(Editar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (op.equals("5")) {
+            request.setAttribute("getNewsByCedula", CRUDReservaProfesores.getNewByIdReserva(idTemp));
+            RequestDispatcher rd = request.getRequestDispatcher("EditarReservaProfesor.jsp");
+            try {
+
+                rd.forward(request, response);
+            } catch (ServletException | IOException ex) {
+
+                Logger.getLogger(Editar.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-   
-        else if(op.equals("2"))
-        {
-           request.setAttribute("getNewsById", CRUDUsuario.getUsuario(idTemp));
-           RequestDispatcher rd = request.getRequestDispatcher("EditarUsuario.jsp");  
-               try 
-           {
-            rd.forward(request, response);
-           } 
-              catch (ServletException | IOException ex)
-           {
-            Logger.getLogger(Editar.class.getName()).log(Level.SEVERE, null, ex);
-           }
-        }
-        
-        else if(op.equals("3"))
-        {
-           
-           int id = Integer.parseInt(idTemp);
-         
-           request.setAttribute("getNewsByCedula", CRUDProfesores.getNewByCedula(id));
-           RequestDispatcher rd = request.getRequestDispatcher("EditarProfesor.jsp");  
-               try 
-           {
-            
-            rd.forward(request, response);
-           } 
-              catch (ServletException | IOException ex)
-           {
-           
-            Logger.getLogger(Editar.class.getName()).log(Level.SEVERE, null, ex);
-           }
-        }
-        
-            else 
-        {
-           
-           
-           String idTemp2 = request.getParameter("id2");
-           request.setAttribute("getSalonByID", CRUDSalones.getSalonByID(idTemp,idTemp2));
-           RequestDispatcher rd = request.getRequestDispatcher("EditarSalon.jsp");  
-           
-               try 
-           {
-              
-            rd.forward(request, response);
-           } 
-              catch (ServletException | IOException ex)
-           {
-           
-            Logger.getLogger(Editar.class.getName()).log(Level.SEVERE, null, ex);
-           }
-        }
-        
-        
-     
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

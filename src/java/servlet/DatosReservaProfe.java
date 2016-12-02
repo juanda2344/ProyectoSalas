@@ -5,26 +5,26 @@
  */
 package servlet;
 
-import CRUD.CRUDMonitores;
 import CRUD.CRUDProfesores;
 import CRUD.CRUDSalones;
-import CRUD.CRUDUsuario;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Profesores;
+import modelo.Salones;
 
 /**
  *
- * @author Usuario
+ * @author porta
  */
-@WebServlet(name = "Borrar", urlPatterns = {"/delete"})
-public class Borrar extends HttpServlet {
+@WebServlet(name = "DatosReservaProfe", urlPatterns = {"/DatosReservaProfe"})
+public class DatosReservaProfe extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,56 +36,44 @@ public class Borrar extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
-
-        String idTemp = request.getParameter("id");
-        String op = request.getParameter("n");
-        
-        if ("1".equals(op)) {
-            CRUDMonitores da = new CRUDMonitores();
-            boolean respuesta = da.delete(idTemp);
-            if (respuesta) {
-                response.sendRedirect("/ProyectoSalas/MostrarMonitores");
-            } else {
+            throws ServletException, IOException {
+        String idTemp = request.getParameter("tipoCarga");
+        if ("1".equals(idTemp)) {
+            try {
+                PrintWriter out = response.getWriter();
+                ArrayList<String> nombreArrayList = new ArrayList<String>();
+                List<Profesores> listaProfe = CRUDProfesores.getAll();
+                for (Profesores pro : listaProfe) {
+                    nombreArrayList.add(pro.getDocumento());
+                }
+                out.println(nombreArrayList);
+            } catch (Exception e) {
                 PrintWriter out = response.getWriter();
                 out.println("error");
             }
-        } else if ("2".equals(op)) {
-            CRUDUsuario da = new CRUDUsuario();
-            boolean respuesta = da.delete(idTemp);
-            if (respuesta) {
-                response.sendRedirect("/ProyectoSalas/mostraru");
-            } else {
+        } else if ("2".equals(idTemp)) {
+            try {
+                PrintWriter out = response.getWriter();
+                ArrayList<String> nombreArrayList = new ArrayList<String>();
+                List<Salones> listaSalones = CRUDSalones.getAll();
+                for (Salones salones : listaSalones) {
+                    nombreArrayList.add(salones.getEdificio());
+                }
+                out.println(nombreArrayList);
+            } catch (Exception e) {
                 PrintWriter out = response.getWriter();
                 out.println("error");
             }
-        } else if ("3".equals(op)) {
-            int id = Integer.parseInt(idTemp);
-            CRUDProfesores da = new CRUDProfesores();
-            da.delete(id);
-            response.sendRedirect("/Proyecto_Salas/mostrarp");
-        } else if ("4".equals(op)){
-            CRUDSalones da = new CRUDSalones();
-            String idTemp2 = request.getParameter("id2");
-            System.out.println(idTemp);
-            System.out.println(idTemp2);
-            boolean respuesta=da.delete(idTemp, idTemp2);
-            System.out.println(respuesta);
-               if (respuesta) 
-            {
-                response.sendRedirect("/ProyectoSalas/Mostrars");
-            }
-            else
-            {
+        } else {
+            try {
                 PrintWriter out = response.getWriter();
-                out.println("error");
-            }
-        }else{
-            CRUDMonitores da = new CRUDMonitores();
-            boolean respuesta = da.deleteAll();
-            if (respuesta) {
-                response.sendRedirect("/ProyectoSalas/MostrarMonitores");
-            } else {
+                ArrayList<String> nombreArrayList = new ArrayList<String>();
+                List<Salones> listaSalones = CRUDSalones.getAll();
+                for (Salones salones : listaSalones) {
+                    nombreArrayList.add(salones.getIdentificador());
+                }
+                out.println(nombreArrayList);
+            } catch (Exception e) {
                 PrintWriter out = response.getWriter();
                 out.println("error");
             }
@@ -105,11 +93,7 @@ public class Borrar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Borrar.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -123,11 +107,7 @@ public class Borrar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Borrar.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

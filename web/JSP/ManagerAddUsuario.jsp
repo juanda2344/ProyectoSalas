@@ -23,12 +23,6 @@
             String usuario = request.getParameter("usuario");
             String contrasena= request.getParameter("contrasena");
             String correo = request.getParameter("correo");
-           
-            System.out.print(nombre);
-            System.out.print(apellidos);
-            System.out.print(usuario);
-            System.out.print(contrasena);
-            System.out.print(correo);
             
            Usuario n = new Usuario(nombre,apellidos,usuario,contrasena,correo);
            CRUDUsuario cm = new CRUDUsuario();

@@ -5,7 +5,7 @@
  */
 package servlet;
 
-import CRUD.CRUDSalones;
+import CRUD.CRUDReservaProfesores;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -17,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Usuario
+ * @author porta
  */
-@WebServlet(name = "MostrarSalones", urlPatterns = {"/Mostrars"})
-public class MostrarSalones extends HttpServlet {
+@WebServlet(name = "mostrarRP", urlPatterns = {"/mostrarRP"})
+public class MostrarReservasProfesores extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,13 +32,10 @@ public class MostrarSalones extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException 
-    {
-        request.setAttribute("MostrarSalones", CRUDSalones.getAll());
-        System.out.println(CRUDSalones.getAll().size());
-        RequestDispatcher rd = request.getRequestDispatcher("MostrarSalones.jsp");
+            throws ServletException, IOException {
+        request.setAttribute("MostrarReservaProf", CRUDReservaProfesores.getAll());
+        RequestDispatcher rd = request.getRequestDispatcher("MostrarReservasProfesores.jsp");
         rd.forward(request,response);
-       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

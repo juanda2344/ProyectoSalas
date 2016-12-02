@@ -8,27 +8,30 @@ and open the template in the editor.
     <head>
         <title>Adicionar</title>
         <meta charset="UTF-8">
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript" src="js/contenido.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <h1>Adicionar Nuevo Monitor</h1>
         <div style="width: 900px; margin-left: auto; margin-right: auto">
-            <form action="JSP/ManagerAddMonitor.jsp" method="post">
+            
                 Nombre:<br>
-                <input type="text" name="nombre" style="width: 200px"><br>
+                <input type="text" id="nombre" style="width: 200px"><br>
                 Apellidos:<br>
-                <input type="text" name="apellidos" style="width: 200px"><br>
+                <input type="text" id="apellidos" style="width: 200px"><br>
                 Documento:<br>
-                <input type="text" name="documento" style="width: 200px"><br>
+                <input type="text" id="documento" style="width: 200px"><br>
                 Correo:<br>
-                <input type="text" name="correo" style="width: 200px"><br>
+                <input type="text" id="correo" style="width: 200px"><br>
                 Semestre:<br>
-                <input type="text" name="semestre" style="width: 200px"><br>
+                <input type="text" id="semestre" style="width: 200px"><br>
                 Telefono:<br>
-                <input type="text" name="telefono" style="width: 200px"><br>
+                <input type="text" id="telefono" style="width: 200px"><br>
+                Carrera:<br>
+                <input type="text" id="carrera" style="width: 200px"><br>
                
-                <input type="submit" value="Submit">
-            </form>
+                <button type="submit" style="margin-left: 35px; margin-top: 5px; padding: 7px" id="addMonitor">Ingresar</button>
             <!--Complete Interface Addnew.-->
         </div>
 

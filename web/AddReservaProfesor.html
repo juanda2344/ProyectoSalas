@@ -1,0 +1,47 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="js/contenidoAddReservaProfesor.js"></script>
+    <script type="text/javascript" src="js/contenido.js"></script>
+</head>
+<body>
+    <div class="login-box animated fadeInUp">
+        <div class="box-header">
+            <h2>Agregar reserva trabajo</h2>
+        </div>
+        Nombre Profesor:<br>
+        <input list="profesores" id="documentoProfesorRes" type="text" placeholder="Ingrese su nombre">
+        <div id="listaProfesores">
+            
+        </div>
+
+        <br>Edificio Salón :<br>
+        <input list="edificios" id="edificioProfesorRes" type="text" placeholder="Ingrese el edificio">
+        <div id="listaEdificios">
+            
+        </div>
+        
+
+        <br>Identificador Salón:<br>
+        <input list="salones" id="salonProfesorRes" type="text" placeholder="Ingrese el salón">
+        <div id="listaSalones">
+            
+        </div>
+        
+
+        <br>Fecha:<br>
+        <input id="fechaProfesorRes" type="date">   
+
+        <br>Hora Inicio: <br>
+        <input id="horaInicioProfesorRes" type="time">
+        <br>    
+        
+        <br>Hora Fin: <br>
+        <input id="horaFinProfesorRes" type="time">
+        <br>    
+
+        <button type="submit" style="margin-left: 35px; margin-top: 5px; padding: 7px" id="addReservaProfesor">Ingresar</button>
+        <p id="error"></p>
+    </div>
+</body>
+</html>

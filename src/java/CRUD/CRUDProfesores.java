@@ -28,7 +28,7 @@ public class CRUDProfesores {
 
         try {
             PreparedStatement ps = DBUtils.getPreparedStatement("insert into Profesores (documento, nombres, apellidos, correo, telefono, cumpleanos) values (?,?,?,?,?,?)");
-            ps.setString(1, p.getCedula());
+            ps.setString(1, p.getDocumento());
             ps.setString(2, p.getNombres());
             ps.setString(3, p.getApellidos());
             ps.setString(4, p.getCorreo());
@@ -54,7 +54,7 @@ public class CRUDProfesores {
         return listProfesores;
     }
 
-    public static List<Profesores> getNewByCedula(int cedula) throws ClassNotFoundException, SQLException {
+    public static List<Profesores> getNewByCedula(String cedula) throws ClassNotFoundException, SQLException {
 
         LinkedList<Profesores> listProfesores = new LinkedList<>();
 
@@ -64,7 +64,6 @@ public class CRUDProfesores {
 
             ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();
             while (rs.next()) {
-
                 listProfesores.addLast(new Profesores(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
             }
         } catch (SQLException ex) {

@@ -19,23 +19,23 @@
         <div style="width: 1200px; margin: auto;">
             <table cellpadding="10">
                 <tr>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Usuario</th>
-                    <th>Contraseña</th>
+                    <th>Profesor</th>
+                    <th>Salon</th>
+                    <th>Hora Inicio</th>
+                    <th>Hora Fin</th>
                      <th></th>
                 </tr>
-                <c:forEach items="${MostrarUsuarios}" var="p">
+                <c:forEach items="${MostrarReservaProf}" var="p">
                     <tr>
-                        <td>${p.nombre}</td>
-                        <td>${p.apellidos}</td>
-                        <td>${p.usuario}</td>
-                        <td>${p.contrasena}</td>
+                        <td>${p.nombreProfesor}</td>
+                        <td>${p.edificio}${p.identificador}</td>
+                        <td>${p.horaInicio}</td>
+                        <td>${p.horaFin}</td>
                         
                         <td>
                     
-                            <a href="#" onclick="myFunctionEdit('${p.usuario}?2')">Modificar</a>
-                            <a href="#" onclick="myFunctionDelete('${p.usuario}?2')">Eliminar</a>
+                            <a href="#" onclick="myFunctionEdit('${p.idReserva}?5')">Modificar</a>
+                            <a href="#" onclick="myFunctionDelete('${p.idReserva}?5')">Eliminar</a>
                         </td>
                     </tr>
                 </c:forEach>
