@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import CRUD.CRUDExterno;
 import CRUD.CRUDMonitores;
 import CRUD.CRUDProfesores;
 import CRUD.CRUDReservaProfesores;
@@ -84,6 +85,17 @@ public class Editar extends HttpServlet {
         } else if (op.equals("5")) {
             request.setAttribute("getNewsByCedula", CRUDReservaProfesores.getNewByIdReserva(idTemp));
             RequestDispatcher rd = request.getRequestDispatcher("EditarReservaProfesor.jsp");
+            try {
+
+                rd.forward(request, response);
+            } catch (ServletException | IOException ex) {
+
+                Logger.getLogger(Editar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (op.equals("6")) {
+            String cedulaExterno = idTemp;
+            request.setAttribute("externo", CRUDExterno.getExternoConDocumento(cedulaExterno));
+            RequestDispatcher rd = request.getRequestDispatcher("EditarExterno.jsp");
             try {
 
                 rd.forward(request, response);

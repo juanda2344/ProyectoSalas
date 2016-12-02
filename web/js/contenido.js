@@ -215,6 +215,13 @@ $(function ()
 
 
     });
+    $('#consultarExterno').click(function (event)
+    {
+        $.post('/ProyectoSalas/MostrarExternos', function (data)
+        {
+            $('#content').html(data);
+        });
+    });
 
 
 
@@ -267,6 +274,29 @@ $(function ()
                     correo: correo,
                     telefono: telefono,
                     carrera: carrera
+                }, function (responseText)
+        {
+            $('#content').html(responseText);
+        });
+    });
+    $('#modificarExterno').click(function (event)
+    {
+        var documento = $('#documento').val();
+        var nombres = $('#nombres').val();
+        var apellidos = $('#apellidos').val();
+        var correo = $('#correo').val();
+        var telefono = $('#telefono').val();
+        var entidad = $('#entidad').val();
+        
+        
+        $.post('JSP/ManagerEditExterno.jsp',
+                {
+                    documento: documento,        
+                    nombres: nombres,
+                    apellidos: apellidos,                    
+                    correo: correo,
+                    telefono: telefono,
+                    entidad: entidad
                 }, function (responseText)
         {
             $('#content').html(responseText);

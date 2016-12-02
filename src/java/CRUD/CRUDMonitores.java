@@ -68,7 +68,6 @@ public class CRUDMonitores
     public static List<Monitores> getMonitorConDocumento(String doc)
     {
         List<Monitores> ls = new LinkedList<>();
-        System.out.println(doc);
         String sql = "select * from Monitores where documento = " +"'"+doc+"'";
         try {
             ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();

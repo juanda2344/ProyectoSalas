@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import CRUD.CRUDExterno;
 import CRUD.CRUDMonitores;
 import CRUD.CRUDProfesores;
 import CRUD.CRUDReservaProfesores;
@@ -91,6 +92,11 @@ public class Borrar extends HttpServlet {
             CRUDReservaProfesores da = new CRUDReservaProfesores();
             da.delete(idTemp);
             response.sendRedirect("/ProyectoSalas/mostrarRP");
+        }else if ("7".equals(op)) {
+            String documentoExterno = idTemp;
+            CRUDExterno crudExterno = new CRUDExterno();
+            crudExterno.deleteExterno(documentoExterno);
+            response.sendRedirect("/ProyectoSalas/MostrarExternos");
         }
 
     }
