@@ -73,9 +73,9 @@ public class Editar extends HttpServlet {
         else if(op.equals("3"))
         {
            
-           int id = Integer.parseInt(idTemp);
+           
          
-           request.setAttribute("getNewsByCedula", CRUDProfesores.getNewByCedula(id));
+           request.setAttribute("getNewsByCedula", CRUDProfesores.getNewByCedula(idTemp));
            RequestDispatcher rd = request.getRequestDispatcher("EditarProfesor.jsp");  
                try 
            {

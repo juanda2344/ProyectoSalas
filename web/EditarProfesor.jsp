@@ -16,21 +16,21 @@
         <h1>Editar Profesor</h1>
         <c:forEach items="${getNewsByCedula}" var="p">
             <div style="width: 900px; margin-left: auto; margin-right: auto">
-            <form action="JSP/ManagerEditProfesor.jsp" method="post">
-                Cedula:<br>
-                <input type="number" value="${p.cedula}" name="cedula" style="width: 200px"><br>
+           
+                
+                <input type="hidden" value="${p.documento}" id="documento" style="width: 200px"><br>
                 Nombres:<br>
-                <input type="text" value="${p.nombres}" name="nombres" style="width: 200px"><br>
+                <input type="text" value="${p.nombres}" id="nombres" style="width: 200px"><br>
                 Apellidos:<br>
-                <input type="text" value="${p.apellidos}" name="apellidos" style="width: 200px"><br>
+                <input type="text" value="${p.apellidos}" id="apellidos" style="width: 200px"><br>
                 Correo:<br>
-                <input type="text" value="${p.correo}" name="correo" style="width: 200px"><br>
+                <input type="text" value="${p.correo}" id="correo" style="width: 200px"><br>
                 Telefono:<br>
-                <input type="number" value="${p.telefono}" name="telefono" style="width: 200px"><br>
+                <input type="number" value="${p.telefono}" id="telefono" style="width: 200px"><br>
                 Fecha De Nacimiento:<br>
-                <input type="date" value="${p.cumpleaños}" name="cumpleanos" style="width: 200px"><br>
-                <input type="submit" name="Submit">
-            </form>
+                <input type="date" value="${p.cumpleaños}" id="cumpleanos" style="width: 200px"><br>
+                <input type="submit" name="Submit" id="EditarProfesor">
+            
         </div>
         </c:forEach>
         

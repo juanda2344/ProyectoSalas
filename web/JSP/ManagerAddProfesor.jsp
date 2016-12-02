@@ -4,6 +4,8 @@
     Author     : porta
 --%>
 
+<%@page import="CRUD.CRUDUsuario"%>
+<%@page import="modelo.Usuario"%>
 <%@page import="CRUD.CRUDProfesores"%>
 <%@page import="modelo.Profesores"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,7 +17,7 @@
     </head>
     <body>
         <%
-            String cedula = request.getParameter("cedula");
+            String cedula = request.getParameter("documento");
             String nombres = request.getParameter("nombres");
             String apellidos = request.getParameter("apellidos");
             String correo = request.getParameter("correo");
@@ -25,8 +27,11 @@
             Profesores p = new Profesores(cedula, nombres, apellidos, correo, telefono, cumpleaños);
             CRUDProfesores da = new CRUDProfesores();
             da.addProfesor(p);
+            Usuario u=new Usuario(nombres, apellidos, cedula, cedula, cedula);
+            CRUDUsuario cu=new CRUDUsuario();
+            cu.addNew(u);
             
-            response.sendRedirect("/Proyecto_Salas/mostrarp");
+            response.sendRedirect("/ProyectoSalas/mostrarp");
         %>
     </body>
 </html>

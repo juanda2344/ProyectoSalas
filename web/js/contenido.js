@@ -4,10 +4,22 @@
 $(function ()
 {
 
-
+      $('#AdicionarProfesor').click(function (event) {
+        $.post('addProfesores.html', function (data)
+        {
+            $('#content').html(data);
+        });
+    });  
 
     $('#adicionarProfe').click(function (event) {
         $.post('AddUsuario.html', function (data)
+        {
+            $('#content').html(data);
+        });
+    });
+
+    $('#adicionarMonitor').click(function (event) {
+        $.post('AddMonitor.html', function (data)
         {
             $('#content').html(data);
         });
@@ -19,8 +31,30 @@ $(function ()
             $('#content').html(data);
         });
     });
+    
+      $('#ConsultarProfesores').click(function (event) {
+         
+        $.post('/ProyectoSalas/mostrarp', function (data)
+        {
+            $('#content').html(data);
+        });
+    });
 
-    $('#envio').click(function (event)
+    $('#consultMonitor').click(function (event) {
+        $.post('/ProyectoSalas/MostrarMonitores', function (data)
+        {
+            $('#content').html(data);
+        });
+    });
+    
+     $('#ConsultarProfesores').click(function (event) {
+        $.post('/ProyectoSalas/MostrarProfesores', function (data)
+        {
+            $('#content').html(data);
+        });
+    });
+
+    $('#addUsuario').click(function (event)
     {
 
         var pass1 = $('#contrasena').val();
@@ -50,53 +84,149 @@ $(function ()
         }
     });
     
-      $('#adicionarSala').click(function (event)
+    
+    
+       $('#AddPr').click(function (event)
     {
-        
+
+        var documento = $('#documento').val();
+        var nombres = $('#nombres').val();
+        var apellidos = $('#apellidos').val();
+        var correo = $('#correo').val();
+        var telefono = $('#telefono').val();
+        var cumpleanos = $('#correo').val();
+
+
+        if(documento == '' || nombres=='')
+          {   
+              if(documento == '')
+                 {
+                    $('#documento').attr('style', 'background:#3CF693');
+                 }
+              if(nombres == '')
+                 {
+                    $('#nombres').attr('style', 'background:#3CF693');
+                 }
+               alert("Campos Requeridos");
+           } 
+        else
+           {
+               $.post('JSP/ManagerAddProfesor.jsp',
+                    {
+                        documento: documento,
+                        nombres: nombres,
+                        apellidos: apellidos,
+                        correo: correo,
+                        telefono: telefono,
+                        cumpleanos:cumpleanos
+                    }, function (responseText)
+                        {
+                            $('#content').html(responseText);
+                        });
+           } 
+    });
+
+    $('#addMonitor').click(function (event)
+    {
+        var nombre = $('#nombre').val();
+        var apellidos = $('#apellidos').val();
+        var documento = $('#documento').val();
+        var semestre = $('#semestre').val();
+        var telefono = $('#telefono').val();
+        var carrera = $('#carrera').val();
+        var correo = $('#correo').val();
+
+        $.post('JSP/ManagerAddMonitor.jsp',
+                {
+                    nombre: nombre,
+                    apellidos: apellidos,
+                    documento: documento,
+                    semestre: semestre,
+                    telefono: telefono,
+                    carrera: carrera,
+                    correo: correo
+                }, function (responseText)
+        {
+            $('#content').html(responseText);
+        });
+    });
+
+    $('#adicionarSala').click(function (event)
+    {
+
         var edificio = $('#edificio').val();
         var id = $('#id').val();
         var tipo = $('#tipo').val();
-        var beam = $('#beam').val();    
+        var beam = $('#beam').val();
         var computadores = $('#computadores').val();
         var sillas = $('#sillas').val();
-        
-       
-        
-            if(edificio != '' || id !='')
+
+
+
+        if (edificio != '' || id != '')
+        {
+            $.post('JSP/ManagerAddNewSalon.jsp',
+                    {
+                        edificio: edificio,
+                        id: id,
+                        tipo: tipo,
+                        beam: beam,
+                        computadores: computadores,
+                        sillas: sillas
+
+                    }, function (responseText)
             {
-                $.post('JSP/ManagerAddNewSalon.jsp', 
-			{
-				edificio :edificio,
-                                id :id,
-                                tipo :tipo,
-				beam: beam,
-                                computadores: computadores,
-                                sillas:sillas
-                                
-			}, function(responseText) 
-			{
-                                
-				$('#content').html(responseText);
-			});
-            }
-            else
-            {
-                $('#edificio').attr('style', 'background:#3CF693');
-                $('#id').attr('style', 'background:#3CF693');
-                
-            }
+                alert(responseText);
+                $('#content').html(responseText);
+            });
+        } else
+        {
+            $('#edificio').attr('style', 'background:#3CF693');
+            $('#id').attr('style', 'background:#3CF693');
+
+        }
     });
-    
-    
-      $('#ConsultarSalas').click(function (event)
+
+
+    $('#ConsultarSalas').click(function (event)
     {
+
+        $.post('/ProyectoSalas/Mostrars', function (data)
+        {
+            $('#content').html(data);
+        });
+
+
+    });
+
+    
+    $('#modificarMonitor').click(function (event)
+    {
+
+        var nombre = $('#nombre').val();
+        var apellidos = $('#apellidos').val();
+        var documento = $('#documento').val();
+        var semestre = $('#semestre').val();
+        var telefono = $('#telefono').val();
+        var carrera = $('#carrera').val();
+        var correo = $('#correo').val();
         
-                $.post('/ProyectoSalas/Mostrars', function(data) 
-			{
-                            $('#content').html(data);
-			});
-            
-           
+        alert(documento);
+
+        $.post('JSP/ManagerEditMonitor.jsp',
+                {
+                    nombre: nombre,
+                    apellidos: apellidos,
+                    documento: documento,
+                    semestre: semestre,
+                    correo: correo,
+                    telefono: telefono,
+                    carrera: carrera
+                }, function (responseText)
+        {            
+            alert(responseText);
+            $('#content').html(responseText);
+        });
     });
 
 
@@ -110,9 +240,7 @@ $(function ()
         var correo = $('#correo').val();
         var usuario = $('#usuario').val();
 
-        alert()
         if (pass1 == pass2) {
-            alert('amsla');
             $.post('JSP/ManagerEditUsuario.jsp',
                     {
                         nombre: nombre,
@@ -122,7 +250,6 @@ $(function ()
                         usuario: usuario
                     }, function (responseText)
             {
-                alert(responseText);
                 $('#content').html(responseText);
             });
         } else {
@@ -160,9 +287,39 @@ $(function ()
             });
       
     });
+    
+     $('#EditarProfesor').click(function (event)
+    {    
+        var documento = $('#documento').val();
+        var nombres = $('#nombres').val();
+        var apellidos = $('#apellidos').val();
+        var correo = $('#correo').val();
+        var telefono = $('#telefono').val();
+        var cumpleanos = $('#correo').val();
+       
+
+      
+            $.post('JSP/ManagerEditProfesor.jsp',
+                    {
+                        documento: documento,
+                        nombres: nombres,
+                        apellidos: apellidos,
+                        correo: correo,
+                        telefono:telefono,
+                        cumpleanos:cumpleanos
+                        
+                    }, function (responseText)
+            {
+                
+                $('#content').html(responseText);
+            });
+      
+    });
 });
 
-function myFuctionEdit(link) {
+
+
+function myFunctionEdit(link) {
     var arreglo = link.split("?");
     $.get('edit',
             {
@@ -174,7 +331,7 @@ function myFuctionEdit(link) {
     });
 }
 
-function myFuctionDelete(link) {
+function myFunctionDelete(link) {
     var arreglo = link.split("?");
     $.get('delete',
             {
@@ -189,38 +346,3 @@ function myFuctionDelete(link) {
         }
     });
 }
-
-function myFuctionEditSalon(link) {
-    var arreglo = link.split("?");
-    $.get('edit',
-            {
-                id: arreglo[0],
-                id2:arreglo[1],
-                n: arreglo[2]
-            }, function (responseText)
-    {
-        $('#content').html(responseText);
-    });
-}
-
-function myFuctionDeleteSalon(link) {
-    var arreglo = link.split("?");
-    $.get('delete',
-            {
-                id: arreglo[0],
-                id2:arreglo[1],
-                n: arreglo[2]
-            }, function (responseText)
-    {
-        
-        if (responseText.trim() == 'error') 
-        {
-            
-            $('#mensaje').html('La Sala  no Se Puede Eliminar')
-        } else 
-        {
-            $('#content').html(responseText);
-        }
-    });
-}
-

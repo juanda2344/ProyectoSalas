@@ -33,7 +33,7 @@ public class CRUDProfesores {
             ps.setString(3, p.getApellidos());
             ps.setString(4, p.getCorreo());
             ps.setString(5, p.getTelefono());
-            ps.setString(6, p.getCumpleaños());
+            ps.setString(6, p.getCumpleanos());
             ps.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Error al agregar un profesor el error es: " + ex.getMessage());
@@ -54,7 +54,7 @@ public class CRUDProfesores {
         return listProfesores;
     }
 
-    public static List<Profesores> getNewByCedula(int cedula) throws ClassNotFoundException, SQLException {
+    public static List<Profesores> getNewByCedula(String cedula) throws ClassNotFoundException, SQLException {
 
         LinkedList<Profesores> listProfesores = new LinkedList<>();
 
@@ -90,11 +90,11 @@ public class CRUDProfesores {
         }
     }
 
-    public void delete(int cedula) throws ClassNotFoundException {
+    public void delete(String cedula) throws ClassNotFoundException {
         try {
             String sql = "delete Profesores where documento = ?";
             PreparedStatement ps = DBUtils.getPreparedStatement(sql);
-            ps.setLong(1, cedula);
+            ps.setString(1, cedula);
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CRUDProfesores.class.getName()).log(Level.SEVERE, null, ex);

@@ -3,13 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/src/java/modelo/Salones.java</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/JSP/ManagerAddNewSalon.jsp</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/JSP/ManagerAddProfesor.jsp</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/AddNewSalon.html</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/src/java/servlet/MostrarSalones.java</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/web/JSP/ManagerEditSalon.jsp</file>
-            <file>file:/C:/Users/juand/Documents/NetBeansProjects/ProyectoSalas/src/java/Conexion/DBUtils.java</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/src/java/CRUD/CRUDProfesores.java</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/src/java/Conexion/DBUtils.java</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/src/java/modelo/Profesores.java</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/web/js/contenido.js</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/web/principal.jsp</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/web/MostrarSalones.jsp</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/src/java/CRUD/CRUDUsuario.java</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/web/JSP/ManagerAddNewSalon.jsp</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/web/MostrarUsuario.jsp</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/src/java/servlet/Borrar.java</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/src/java/servlet/MostrarSalones.java</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/web/js/login.js</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/web/EditarSalon.jsp</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/web/EditarUsuario.jsp</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/src/java/servlet/Editar.java</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/src/java/modelo/Salones.java</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/web/JSP/ManagerEditSalon.jsp</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/src/java/CRUD/CRUDSalones.java</file>
+            <file>file:/D:/Nueva%20carpeta/ProyectoSalas/web/addProfesores.html</file>
         </group>
     </open-files>
 </project-private>

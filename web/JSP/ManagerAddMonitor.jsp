@@ -23,12 +23,13 @@
             String correo = request.getParameter("correo");
             String semestre = request.getParameter("semestre");
             String telefono = request.getParameter("telefono");
+            String carrera = request.getParameter("carrera");
             
-            Monitores n = new Monitores(nombre,apellidos,documento,correo,semestre,telefono);
+            Monitores n = new Monitores(nombre,apellidos,documento,correo,semestre,telefono, carrera);
             CRUDMonitores cm = new CRUDMonitores();
             cm.addNew(n);
             
-            response.sendRedirect("/Proyecto_Salas/MostrarMonitores");
+            response.sendRedirect("/ProyectoSalas/MostrarMonitores");
         %>
         
     </body>

@@ -16,16 +16,16 @@ public class Profesores {
     private String nombres;
     private String apellidos;
     private String correo;
-    private String cumpleaños;
+    private String cumpleanos;
     private String telefono;
 
-    public Profesores(String documento, String nombres, String apellidos, String correo, String telefono, String cumpleaños) {
+    public Profesores(String documento, String nombres, String apellidos, String correo, String telefono, String cumpleanos) {
         this.documento = documento;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correo = correo;
         this.telefono = telefono;
-        this.cumpleaños = cumpleaños;
+        this.cumpleanos = cumpleanos;
     }
 
     public String getDocumento() {
@@ -62,12 +62,12 @@ public class Profesores {
         this.correo = correo;
     }
 
-    public String getCumpleaños() {
-        return cumpleaños;
+    public String getCumpleanos() {
+        return cumpleanos;
     }
 
-    public void setCumpleaños(String cumpleaños) {
-        this.cumpleaños = cumpleaños;
+    public void setCumpleanos(String cumpleaños) {
+        this.cumpleanos = cumpleaños;
     }
 
     public String getTelefono() {

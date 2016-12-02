@@ -1,46 +1,25 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>Agregar Profesor</title>
-        <meta charset="UTF-8">
-        <meta charset="utf-8">
-        <!-- Google Fonts -->
-        <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/animate.css">        
-        <link rel="stylesheet" href="css/style.css">
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div class="container">
-            <div class="top">
-                <h1 id="title" class="hidden"><span id="logo">Coordinación de Salas <span>UCALDAS</span></span></h1>
-            </div>
-            <div class="login-box animated fadeInUp">
+
+<head>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="js/contenido.js"></script>
+</head>
+
+<div class="login-box animated fadeInUp">
                 <div class="box-header">
-                        <h2>Agregar Profesor</h2>
-                    </div>
-                    <form action="JSP/ManagerAddProfesor.jsp" method="post">
-                        Cedula:<br>
-                        <input type="number" name="cedula" style="width: 200px" placeholder="Ingrese su cedula" required ><br>
-                        Nombres:<br>
-                        <input type="text" name="nombres" style="width: 200px" placeholder="Ingrese su nombre" required><br>
-                        Apellidos:<br>
-                        <input type="text" name="apellidos" style="width: 200px" placeholder="Ingrese su apellido" required><br>
-                        Correo:<br>
-                        <input type="text" name="correo" style="width: 200px" placeholder="Ingrese su correo" required><br>
-                        Telefono:<br>
-                        <input type="number" name="telefono" style="width: 200px" placeholder="Ingrese su Telefono" required><br>
-                        Fecha De Nacimiento:<br>
-                        <input type="date" name="cumpleanos" style="width: 200px" required><br>
-                        <input type="submit" name="Submit">
-                    </form>
+                    <h2>Agregar Profesor</h2>
+                </div>
+                Documento:<br>
+                <input type="text" id="documento" placeholder="Ingrese el documento"><br>
+                Nombre:<br>
+                <input type="text" id="nombres" placeholder="Ingrese el nombre"><br>
+                Apellidos:<br>
+                <input type="text" id="apellidos" placeholder="Ingrese los apellidos"><br>
+                Telefono:<br>
+                <input type="text" id="telefono" placeholder="Ingrese telefono"><br>
+                Correo:<br>
+                <input type="email" id="correo" placeholder="Ingrese el correo"><br>
+                Cumpleaños:<br>
+                <input type="date" id="cumpleanos"><br>
+                <button type="submit" style="margin-left: 35px; margin-top: 5px; padding: 7px" id="AddPr">Ingresar</button>
+                <p id="error"></p>
             </div>
-        </div>
-    </body>
-</html>

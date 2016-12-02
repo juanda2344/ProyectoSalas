@@ -65,8 +65,8 @@
                                                                         <li>
 										<a href="#">Profesores</a>
 										<ul>
-											<li><a href="#" id="adicionarP">Adicionar</a></li>
-											<li><a href="#" id="consultP">Consultar, Eliminar, Editar</a></li>
+											<li><a href="#" id="AdicionarProfesor">Adicionar</a></li>
+											<li><a href="#" id="ConsultarProfesores">Consultar, Eliminar, Editar</a></li>
 											<li>
 												<a href="#">Consultar Salas Reservadas</a>
 											</li>
@@ -76,8 +76,8 @@
 									<li>
 										<a href="#">Monitores</a>
 										<ul>
-											<li><a href="#">Adicionar</a></li>
-											<li><a href="#">Consultar, Eliminar, Editar</a></li>
+											<li><a href="#" id="adicionarMonitor">Adicionar</a></li>
+											<li><a href="#" id="consultMonitor">Consultar, Eliminar, Editar</a></li>
 											<li>
 												<a href="#">Borrar Todos</a>
 											</li>

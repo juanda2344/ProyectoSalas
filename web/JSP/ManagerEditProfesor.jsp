@@ -14,19 +14,17 @@
     </head>
     <body>
         <% 
-            String cedulaTemp = request.getParameter("cedula");
-            int cedula = Integer.parseInt(cedulaTemp);
+            String cedula= request.getParameter("documento");
             String nombres = request.getParameter("nombres");
             String apellidos = request.getParameter("apellidos");
             String correo = request.getParameter("correo");
-            String telefonoTemp = request.getParameter("telefono");
-            int telefono = Integer.parseInt(telefonoTemp);
+            String telefono = request.getParameter("telefono");
             String cumpleaños = request.getParameter("cumpleanos");
             
             CRUDProfesores dt = new CRUDProfesores();
             dt.edit(cedula, nombres, apellidos, correo, telefono, cumpleaños);
             
-            response.sendRedirect("/Proyecto_Salas/mostrarp");
+            response.sendRedirect("/ProyectoSalas/mostrarp");
         %>
     </body>
 </html>
