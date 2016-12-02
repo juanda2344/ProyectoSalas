@@ -5,22 +5,26 @@
  */
 package servlet;
 
+import CRUD.CRUDProfesores;
 import CRUD.CRUDSalones;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Profesores;
+import modelo.Salones;
 
 /**
  *
- * @author Usuario
+ * @author porta
  */
-@WebServlet(name = "MostrarSalones", urlPatterns = {"/Mostrars"})
-public class MostrarSalones extends HttpServlet {
+@WebServlet(name = "DatosReservaProfe", urlPatterns = {"/DatosReservaProfe"})
+public class DatosReservaProfe extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,13 +36,49 @@ public class MostrarSalones extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException 
-    {
-        request.setAttribute("MostrarSalones", CRUDSalones.getAll());
-        System.out.println(CRUDSalones.getAll().size());
-        RequestDispatcher rd = request.getRequestDispatcher("MostrarSalones.jsp");
-        rd.forward(request,response);
-       
+            throws ServletException, IOException {
+        String idTemp = request.getParameter("tipoCarga");
+        if ("1".equals(idTemp)) {
+            try {
+                PrintWriter out = response.getWriter();
+                ArrayList<String> nombreArrayList = new ArrayList<String>();
+                List<Profesores> listaProfe = CRUDProfesores.getAll();
+                for (Profesores pro : listaProfe) {
+                    nombreArrayList.add(pro.getDocumento());
+                }
+                out.println(nombreArrayList);
+            } catch (Exception e) {
+                PrintWriter out = response.getWriter();
+                out.println("error");
+            }
+        } else if ("2".equals(idTemp)) {
+            try {
+                PrintWriter out = response.getWriter();
+                ArrayList<String> nombreArrayList = new ArrayList<String>();
+                List<Salones> listaSalones = CRUDSalones.getAll();
+                for (Salones salones : listaSalones) {
+                    nombreArrayList.add(salones.getEdificio());
+                }
+                out.println(nombreArrayList);
+            } catch (Exception e) {
+                PrintWriter out = response.getWriter();
+                out.println("error");
+            }
+        } else {
+            try {
+                PrintWriter out = response.getWriter();
+                ArrayList<String> nombreArrayList = new ArrayList<String>();
+                List<Salones> listaSalones = CRUDSalones.getAll();
+                for (Salones salones : listaSalones) {
+                    nombreArrayList.add(salones.getIdentificador());
+                }
+                out.println(nombreArrayList);
+            } catch (Exception e) {
+                PrintWriter out = response.getWriter();
+                out.println("error");
+            }
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

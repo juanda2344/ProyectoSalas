@@ -54,7 +54,7 @@ public class CRUDProfesores {
         return listProfesores;
     }
 
-    public static List<Profesores> getNewByCedula(int cedula) throws ClassNotFoundException, SQLException {
+    public static List<Profesores> getNewByCedula(String cedula) throws ClassNotFoundException, SQLException {
 
         LinkedList<Profesores> listProfesores = new LinkedList<>();
 

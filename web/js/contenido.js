@@ -1,6 +1,3 @@
-
-
-
 $(function ()
 {
     $('#borrarAllMonitores').click(function (event) {
@@ -44,6 +41,43 @@ $(function ()
             $('#content').html(data);
         });
     });
+    
+    $('#consultarReservaProfesor').click(function (event) {
+        $.post('/ProyectoSalas/mostrarRP', function (data)
+        {
+            $('#content').html(data);
+        });
+    });
+
+
+        $('#addReservaProfesor').click(function (event)
+    {
+        var nameIdUsuario = $('#usuarioSesion').val();
+        var documento = $('#documentoProfesorRes').val();
+        var edificio = $('#edificioProfesorRes').val();        
+        var salon = $('#salonProfesorRes').val();        
+        var fecha = $('#fechaProfesorRes').val();        
+        var horaInicio = $('#horaInicioProfesorRes').val();        
+        var horaFin = $('#horaFinProfesorRes').val();        
+        
+        alert('entre');
+        
+            $.post('JSP/ManagerAddReservaProfesor.jsp',
+                    {
+                        nameIdUsuario: nameIdUsuario,
+                        documento: documento,
+                        edificio: edificio,
+                        salon: salon,
+                        fecha: fecha,
+                        horaInicio: horaInicio,
+                        horaFin: horaFin
+                    }, function (responseText)
+            {
+                $('#content').html(responseText);
+            });
+        
+    });
+
 
     $('#addUsuario').click(function (event)
     {
@@ -248,6 +282,10 @@ function myFunctionEdit(link) {
     {
         $('#content').html(responseText);
     });
+}
+
+function myFunctionCarga(){
+    alert('cargado');
 }
 
 function myFunctionDelete(link) {

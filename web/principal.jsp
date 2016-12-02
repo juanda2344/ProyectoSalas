@@ -31,6 +31,7 @@
 								<h1><a href="index.html">CoordiSalas</a></h1>
 								<span>Facultad de Ingenierias</span>
                                                                 <p>Bienvenido ${sessionScope.usuario}</p>
+                                                                <input type="hidden" value="${sessionScope.usuario}" id="usuarioSesion">
 							</div>
 
 						<!-- Nav -->
@@ -48,7 +49,7 @@
 													<li><a href="#">Profesores</a></li>
                                                                                                         <ul>
                                                                                                             <li><a href="#" id="adicionarReservaProfesor">Reservar Sala</a></li>    
-                                                                                                            <li><a href="#">Ver Reservas</a></li>    
+                                                                                                            <li><a href="#" id="consultarReservaProfesor">Ver Reservas</a></li>    
                                                                                                         </ul>
 													<li><a href="#">Reserva Entidad Externa</a></li>
 													</ul>
