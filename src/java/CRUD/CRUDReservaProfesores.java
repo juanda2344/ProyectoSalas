@@ -48,7 +48,7 @@ public class CRUDReservaProfesores {
             while (rs.next()) {
                 ReservaProfesor n = new ReservaProfesor();
                 String nombre = CRUDProfesores.getNewByCedula(rs.getString(3)).get(0).getNombres();
-                n.ReservaProfesor2(rs.getString(1), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), nombre);
+                n.ReservaProfesor2(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), nombre);
                 ls.add(n);
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -57,5 +57,46 @@ public class CRUDReservaProfesores {
 
         return ls;
     }
+    
+     public static List<ReservaProfesor> getNewByIdReserva(String reserva) throws ClassNotFoundException, SQLException {
 
+        LinkedList<ReservaProfesor> listReserva = new LinkedList<>();
+
+        String sql = "select * from ReservasProfesores where id =" + reserva;
+
+        try {
+
+            ResultSet rs = DBUtils.getPreparedStatement(sql).executeQuery();
+            while (rs.next()) {
+                ReservaProfesor reservaProfesor = new ReservaProfesor();
+                 String nombre = CRUDProfesores.getNewByCedula(rs.getString(3)).get(0).getNombres();
+                reservaProfesor.ReservaProfesor2(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), nombre);
+                listReserva.addLast(reservaProfesor);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error comsultando la lista de profesores el error es: " + ex.getMessage());
+        }
+
+        return listReserva;
+    }
+
+     public void edit(ReservaProfesor reservaPro) throws ClassNotFoundException {
+        try {
+            System.out.println(reservaPro.getIdReserva());
+            String sql = "update ReservasProfesores set nameIdUsuario = ?, documentoProfe = ?, edificioSalon = ?, identificadorSalon = ?, fecha = ?, horaInicio = ?, horaFin = ? where id = ?";
+            PreparedStatement ps = DBUtils.getPreparedStatement(sql);
+            ps.setString(1, reservaPro.getNameIdUsuario());
+            ps.setString(2, reservaPro.getDocumento());
+            ps.setString(3, reservaPro.getEdificio());
+            ps.setString(4, reservaPro.getIdentificador());
+            ps.setString(5, reservaPro.getFecha());
+            ps.setString(6, reservaPro.getHoraInicio());
+            ps.setString(7, reservaPro.getHoraFin());
+            ps.setString(8, reservaPro.getIdReserva());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDProfesores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     
 }

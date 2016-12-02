@@ -34,9 +34,10 @@ public class ReservaProfesor {
     public ReservaProfesor(){
     }
     
-    public void ReservaProfesor2(String idReserva, String edificio, String identificador, String fecha, String horaInicio, String horaFin, String nombreProfesor) {
+    public void ReservaProfesor2(String idReserva, String nameIdUsuario, String documento, String edificio, String identificador, String fecha, String horaInicio, String horaFin, String nombreProfesor) {
         this.idReserva = idReserva;
         this.nombreProfesor = nombreProfesor;
+        this.documento = documento;
         this.edificio = edificio;
         this.identificador = identificador;
         this.fecha = fecha;

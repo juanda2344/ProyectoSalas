@@ -7,6 +7,7 @@ package servlet;
 
 import CRUD.CRUDMonitores;
 import CRUD.CRUDProfesores;
+import CRUD.CRUDReservaProfesores;
 import CRUD.CRUDSalones;
 import CRUD.CRUDUsuario;
 import java.io.IOException;
@@ -73,6 +74,16 @@ public class Editar extends HttpServlet {
             request.setAttribute("getSalonByID", CRUDSalones.getSalonByID(idTemp, idTemp2));
             RequestDispatcher rd = request.getRequestDispatcher("EditarSalon.jsp");
 
+            try {
+
+                rd.forward(request, response);
+            } catch (ServletException | IOException ex) {
+
+                Logger.getLogger(Editar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (op.equals("5")) {
+            request.setAttribute("getNewsByCedula", CRUDReservaProfesores.getNewByIdReserva(idTemp));
+            RequestDispatcher rd = request.getRequestDispatcher("EditarReservaProfesor.jsp");
             try {
 
                 rd.forward(request, response);

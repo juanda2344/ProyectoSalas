@@ -182,7 +182,38 @@ $(function ()
 
     });
 
+    
 
+    $('#editarResProBtn').click(function (event)
+    {
+        var nameIdUsuario = $('#nameIdUsuario').val();
+        var idReserva = $('#usuarioSesion').val();
+        var documento = $('#documentoProfesorRes').val();
+        var edificio = $('#edificioProfesorRes').val();
+        var salon = request.getParameter("salonProfesorRes");
+        var fecha = request.getParameter("fechaProfesorRes");
+        var horaInicio = request.getParameter("horaInicioProfesorRes");
+        var horaFin = request.getParameter("horaFinProfesorRes");    
+
+        alert(documento);
+
+        $.post('JSP/ManagerEditMonitor.jsp',
+                {
+                    nombre: nombre,
+                    apellidos: apellidos,
+                    documento: documento,
+                    semestre: semestre,
+                    correo: correo,
+                    telefono: telefono,
+                    carrera: carrera
+                }, function (responseText)
+        {
+            alert(responseText);
+            $('#content').html(responseText);
+        });
+    });
+    
+    
     $('#modificarMonitor').click(function (event)
     {
 
