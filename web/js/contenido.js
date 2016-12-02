@@ -34,6 +34,13 @@ $(function ()
             $('#content').html(data);
         });
     });
+    
+    $('#adicionarReservaExterna').click(function (event) {
+        $.post('AddReservaExterno.html', function (data)
+        {
+            $('#content').html(data);
+        });
+    });
 
     $('#consultProfe').click(function (event) {
         $.post('/ProyectoSalas/mostraru', function (data)
@@ -70,9 +77,34 @@ $(function ()
         var horaInicio = $('#horaInicioProfesorRes').val();
         var horaFin = $('#horaFinProfesorRes').val();
 
-        alert('entre');
-
         $.post('JSP/ManagerAddReservaProfesor.jsp',
+                {
+                    nameIdUsuario: nameIdUsuario,
+                    documento: documento,
+                    edificio: edificio,
+                    salon: salon,
+                    fecha: fecha,
+                    horaInicio: horaInicio,
+                    horaFin: horaFin
+                }, function (responseText)
+        {
+            $('#content').html(responseText);
+        });
+
+    });
+    
+    
+    $('#addReservaExterno').click(function (event)
+    {
+        var nameIdUsuario = $('#usuarioSesion').val();
+        var documento = $('#documentoExternoRes').val();
+        var edificio = $('#edificioExternoRes').val();
+        var salon = $('#salonExternoRes').val();
+        var fecha = $('#fechaExternoRes').val();
+        var horaInicio = $('#horaInicioExternoRes').val();
+        var horaFin = $('#horaFinExternoRes').val();
+        
+        $.post('JSP/ManagerAddReservaExterna.jsp',
                 {
                     nameIdUsuario: nameIdUsuario,
                     documento: documento,

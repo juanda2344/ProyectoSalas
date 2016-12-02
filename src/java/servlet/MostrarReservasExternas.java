@@ -5,26 +5,22 @@
  */
 package servlet;
 
-import CRUD.CRUDExterno;
-import CRUD.CRUDSalones;
+import CRUD.CRUDReservaExterna;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Externo;
-import modelo.Salones;
 
 /**
  *
  * @author porta
  */
-@WebServlet(name = "DatosReservaExterna", urlPatterns = {"/DatosReservaExterna"})
-public class DatosReservaExterna extends HttpServlet {
+@WebServlet(name = "MostrarReservasExternas", urlPatterns = {"/MostrarReservasExternas"})
+public class MostrarReservasExternas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,48 +33,9 @@ public class DatosReservaExterna extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idTemp = request.getParameter("tipoCarga");
-        if ("1".equals(idTemp)) {
-            try {
-                PrintWriter out = response.getWriter();
-                ArrayList<String> arregloExternos = new ArrayList<String>();
-                List<Externo> listaExternos = CRUDExterno.getAll();
-                for (Externo externo : listaExternos) {
-                    arregloExternos.add(externo.getDocumento());
-                }
-                out.println(arregloExternos);
-            } catch (Exception e) {
-                PrintWriter out = response.getWriter();
-                out.println("error");
-            }
-        } else if ("2".equals(idTemp)) {
-            try {
-                PrintWriter out = response.getWriter();
-                ArrayList<String> nombreArrayList = new ArrayList<String>();
-                List<Salones> listaSalones = CRUDSalones.getAll();
-                for (Salones salones : listaSalones) {
-                    nombreArrayList.add(salones.getEdificio());
-                }
-                out.println(nombreArrayList);
-            } catch (Exception e) {
-                PrintWriter out = response.getWriter();
-                out.println("error");
-            }
-        } else {
-            try {
-                PrintWriter out = response.getWriter();
-                ArrayList<String> nombreArrayList = new ArrayList<String>();
-                List<Salones> listaSalones = CRUDSalones.getAll();
-                for (Salones salones : listaSalones) {
-                    nombreArrayList.add(salones.getIdentificador());
-                }
-                out.println(nombreArrayList);
-            } catch (Exception e) {
-                PrintWriter out = response.getWriter();
-                out.println("error");
-            }
-        }
-
+        request.setAttribute("listaReservasExternas", CRUDReservaExterna.getAllReservasExternas());
+        RequestDispatcher rd = request.getRequestDispatcher("MostrarReservasExternos.jsp");
+        rd.forward(request,response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

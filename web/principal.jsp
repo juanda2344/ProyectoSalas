@@ -51,7 +51,11 @@
                                                 <li><a href="#" id="adicionarReservaProfesor">Reservar Sala</a></li>    
                                                 <li><a href="#" id="consultarReservaProfesor">Ver Reservas</a></li>    
                                             </ul>
-                                            <li><a href="#">Reserva Entidad Externa</a></li>
+                                            <li><a href="#">Entidad Externa</a></li>
+                                            <ul>
+                                                <li><a href="#" id="adicionarReservaExterna">Reservar Sala</a></li>    
+                                                <li><a href="#" id="consultarReservaExterna">Ver Reservas</a></li>    
+                                            </ul>
                                         </ul>
                                     </li>
 

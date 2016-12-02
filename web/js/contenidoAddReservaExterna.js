@@ -7,16 +7,16 @@ function myFunctionCarga() {
         var respuesta = responseText.trim();
         var cadenaUnica = respuesta.substring(1, respuesta.length - 1);        
         var cedulas = cadenaUnica.split(',');
-        var contruccionHtml = "<datalist id="+"profesores"+">";
+        var contruccionHtml = "<datalist id="+"externos"+">";
         for (var indice in cedulas) {
             contruccionHtml = contruccionHtml + "<option value="+cedulas[indice]+">";
         }        
         contruccionHtml = contruccionHtml + "</datalist>";
-        $('#listaProfesores').html(contruccionHtml);
+        $('#listaExterno').html(contruccionHtml);
 
     });
     
-    $.post('DatosReservaProfe',
+    $.post('DatosReservaExterna',
             {
                 tipoCarga: '2'
             }, function (responseText)
@@ -32,7 +32,7 @@ function myFunctionCarga() {
         $('#listaEdificios').html(contruccionHtml);
 
     });
-    $.post('DatosReservaProfe',
+    $.post('DatosReservaExterna',
             {
                 tipoCarga: '3'
             }, function (responseText)
