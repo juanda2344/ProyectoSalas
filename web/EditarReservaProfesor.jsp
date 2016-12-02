@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript" src="js/contenidoAddReservaProfesor.js"></script>
+        <script type="text/javascript" src="js/contenido.js"></script>
         <title>Editar Profesor</title>
     </head>
     <body>

@@ -21,6 +21,13 @@ $(function ()
         });
     });
     
+    $('#adicionarExterno').click(function (event) {
+        $.post('AddExterno.html', function (data)
+        {
+            $('#content').html(data);
+        });
+    });
+
     $('#adicionarReservaProfesor').click(function (event) {
         $.post('AddReservaProfesor.html', function (data)
         {
@@ -41,7 +48,7 @@ $(function ()
             $('#content').html(data);
         });
     });
-    
+
     $('#consultarReservaProfesor').click(function (event) {
         $.post('/ProyectoSalas/mostrarRP', function (data)
         {
@@ -49,33 +56,36 @@ $(function ()
         });
     });
 
+    $('#asignarReservas').click(function (event) {
 
-        $('#addReservaProfesor').click(function (event)
+    });
+
+    $('#addReservaProfesor').click(function (event)
     {
         var nameIdUsuario = $('#usuarioSesion').val();
         var documento = $('#documentoProfesorRes').val();
-        var edificio = $('#edificioProfesorRes').val();        
-        var salon = $('#salonProfesorRes').val();        
-        var fecha = $('#fechaProfesorRes').val();        
-        var horaInicio = $('#horaInicioProfesorRes').val();        
-        var horaFin = $('#horaFinProfesorRes').val();        
-        
+        var edificio = $('#edificioProfesorRes').val();
+        var salon = $('#salonProfesorRes').val();
+        var fecha = $('#fechaProfesorRes').val();
+        var horaInicio = $('#horaInicioProfesorRes').val();
+        var horaFin = $('#horaFinProfesorRes').val();
+
         alert('entre');
-        
-            $.post('JSP/ManagerAddReservaProfesor.jsp',
-                    {
-                        nameIdUsuario: nameIdUsuario,
-                        documento: documento,
-                        edificio: edificio,
-                        salon: salon,
-                        fecha: fecha,
-                        horaInicio: horaInicio,
-                        horaFin: horaFin
-                    }, function (responseText)
-            {
-                $('#content').html(responseText);
-            });
-        
+
+        $.post('JSP/ManagerAddReservaProfesor.jsp',
+                {
+                    nameIdUsuario: nameIdUsuario,
+                    documento: documento,
+                    edificio: edificio,
+                    salon: salon,
+                    fecha: fecha,
+                    horaInicio: horaInicio,
+                    horaFin: horaFin
+                }, function (responseText)
+        {
+            $('#content').html(responseText);
+        });
+
     });
 
 
@@ -107,6 +117,30 @@ $(function ()
             $('#rcontrasena').attr('style', 'background:#3CF693');
             $('#error').html('Verifique sus contraseñas');
         }
+    });
+
+    $('#addExterno').click(function (event)
+    {
+        var documento = $('#documento').val();
+        var nombres = $('#nombres').val();
+        var apellidos = $('#apellidos').val();
+        var correo = $('#correo').val();
+        var telefono = $('#telefono').val();
+        var entidad = $('#entidad').val();
+        
+
+        $.post('JSP/ManagerAddExterno.jsp',
+                {
+                    documento: documento,
+                    nombres: nombres,
+                    apellidos: apellidos,
+                    correo: correo,
+                    telefono: telefono,
+                    entidad: entidad
+                }, function (responseText)
+        {
+            $('#content').html(responseText);
+        });
     });
 
     $('#addMonitor').click(function (event)
@@ -182,38 +216,37 @@ $(function ()
 
     });
 
-    
+
 
     $('#editarResProBtn').click(function (event)
     {
-        var nameIdUsuario = $('#nameIdUsuario').val();
-        var idReserva = $('#usuarioSesion').val();
+        var nameIdUsuario = $('#usuarioSesion').val();
+        var idReserva = $('#idReserva').val();
         var documento = $('#documentoProfesorRes').val();
         var edificio = $('#edificioProfesorRes').val();
-        var salon = request.getParameter("salonProfesorRes");
-        var fecha = request.getParameter("fechaProfesorRes");
-        var horaInicio = request.getParameter("horaInicioProfesorRes");
-        var horaFin = request.getParameter("horaFinProfesorRes");    
+        var salon = $('#salonProfesorRes').val();
+        var fecha = $('#fechaProfesorRes').val();
+        var horaInicio = $('#horaInicioProfesorRes').val();
+        var horaFin = $('#horaFinProfesorRes').val();
 
-        alert(documento);
 
-        $.post('JSP/ManagerEditMonitor.jsp',
+        $.post('JSP/ManagerEditReservaProfesor.jsp',
                 {
-                    nombre: nombre,
-                    apellidos: apellidos,
-                    documento: documento,
-                    semestre: semestre,
-                    correo: correo,
-                    telefono: telefono,
-                    carrera: carrera
+                    nameIdUsuario: nameIdUsuario,
+                    idReserva: idReserva,
+                    documentoProfesorRes: documento,
+                    edificioProfesorRes: edificio,
+                    salonProfesorRes: salon,
+                    fechaProfesorRes: fecha,
+                    horaInicioProfesorRes: horaInicio,
+                    horaFinProfesorRes: horaFin
                 }, function (responseText)
         {
-            alert(responseText);
             $('#content').html(responseText);
         });
     });
-    
-    
+
+
     $('#modificarMonitor').click(function (event)
     {
 
@@ -225,8 +258,6 @@ $(function ()
         var carrera = $('#carrera').val();
         var correo = $('#correo').val();
 
-        alert(documento);
-
         $.post('JSP/ManagerEditMonitor.jsp',
                 {
                     nombre: nombre,
@@ -238,7 +269,6 @@ $(function ()
                     carrera: carrera
                 }, function (responseText)
         {
-            alert(responseText);
             $('#content').html(responseText);
         });
     });
@@ -315,7 +345,7 @@ function myFunctionEdit(link) {
     });
 }
 
-function myFunctionCarga(){
+function myFunctionCarga() {
     alert('cargado');
 }
 

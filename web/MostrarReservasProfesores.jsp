@@ -35,7 +35,7 @@
                         <td>
                     
                             <a href="#" onclick="myFunctionEdit('${p.idReserva}?5')">Modificar</a>
-                            <a href="#" onclick="myFunctionDelete('${p.idReserva}?5')">Eliminar</a>
+                            <a href="#" onclick="myFunctionDelete('${p.idReserva}?6')">Eliminar</a>
                         </td>
                     </tr>
                 </c:forEach>

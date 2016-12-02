@@ -22,7 +22,7 @@
                     <th>Tipo</th>
                     <th>Computadores</th>
                     <th>Sillas</th>
-
+                    <th></th>
 
                 </tr>
                 <c:forEach items="${MostrarSalones}" var="p">

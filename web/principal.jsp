@@ -29,7 +29,7 @@
 						<!-- Logo -->
 							<div id="logo">
 								<h1><a href="index.html">CoordiSalas</a></h1>
-								<span>Facultad de Ingenierias</span>
+                                                                <br><span>Facultad de Ingenierias</span>
                                                                 <p>Bienvenido ${sessionScope.usuario}</p>
                                                                 <input type="hidden" value="${sessionScope.usuario}" id="usuarioSesion">
 							</div>
@@ -37,7 +37,7 @@
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li class="current"><a href="principal.jsp">Inicio</a></li>
+									<li class="current"><a href="#" id="asignarReservas">Inicio</a></li>
 									<li>
 										<a href="#">Salas</a>
 										<ul>
@@ -55,6 +55,13 @@
 													</ul>
 											</li>
 											
+										</ul>
+									</li>
+                                                                        <li>
+										<a href="#">Externo</a>
+										<ul>
+											<li><a href="#" id="adicionarExterno">Adicionar</a></li>
+											<li><a href="#" id="">Consultar, Eliminar, Editar</a></li>
 										</ul>
 									</li>
 									<li>

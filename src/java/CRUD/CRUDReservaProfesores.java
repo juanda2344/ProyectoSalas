@@ -58,6 +58,18 @@ public class CRUDReservaProfesores {
         return ls;
     }
     
+     public void delete(String idReserva) throws ClassNotFoundException {
+        try {
+            String sql = "delete ReservasProfesores where id = ?";
+            PreparedStatement ps = DBUtils.getPreparedStatement(sql);
+            ps.setString(1, idReserva);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(CRUDProfesores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
      public static List<ReservaProfesor> getNewByIdReserva(String reserva) throws ClassNotFoundException, SQLException {
 
         LinkedList<ReservaProfesor> listReserva = new LinkedList<>();
@@ -82,7 +94,8 @@ public class CRUDReservaProfesores {
 
      public void edit(ReservaProfesor reservaPro) throws ClassNotFoundException {
         try {
-            System.out.println(reservaPro.getIdReserva());
+           
+            
             String sql = "update ReservasProfesores set nameIdUsuario = ?, documentoProfe = ?, edificioSalon = ?, identificadorSalon = ?, fecha = ?, horaInicio = ?, horaFin = ? where id = ?";
             PreparedStatement ps = DBUtils.getPreparedStatement(sql);
             ps.setString(1, reservaPro.getNameIdUsuario());

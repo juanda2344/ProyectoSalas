@@ -34,7 +34,7 @@ public class CRUDMonitores
             ps.setString(4, n.getCorreo());
             ps.setString(5, n.getSemestre());
             ps.setString(6, n.getTelefono());
-            ps.setString(7, n.getTelefono());
+            ps.setString(7, n.getCarrera());
             ps.executeUpdate();
             
         } 
@@ -107,6 +107,7 @@ public class CRUDMonitores
         }
         
     }
+    
     
     public boolean delete(String documento)
     {

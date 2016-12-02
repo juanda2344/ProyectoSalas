@@ -25,8 +25,6 @@
             String horaInicio = request.getParameter("horaInicioProfesorRes");
             String horaFin = request.getParameter("horaFinProfesorRes");            
             
-            System.out.println(nameIdUsuario + "/" + idReserva + "/" + documento + "/" + edificio + "/" + salon + "/" + fecha + "/" + horaInicio + "/" + horaInicio);
-            
            ReservaProfesor reservaProfesor = new ReservaProfesor();
            reservaProfesor.ReservaProfesor2(idReserva, nameIdUsuario, documento, edificio, salon, fecha, horaInicio, horaFin, "");
            CRUDReservaProfesores RP = new CRUDReservaProfesores();

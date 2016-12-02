@@ -7,6 +7,7 @@ package servlet;
 
 import CRUD.CRUDMonitores;
 import CRUD.CRUDProfesores;
+import CRUD.CRUDReservaProfesores;
 import CRUD.CRUDSalones;
 import CRUD.CRUDUsuario;
 import java.io.IOException;
@@ -40,7 +41,7 @@ public class Borrar extends HttpServlet {
 
         String idTemp = request.getParameter("id");
         String op = request.getParameter("n");
-        
+
         if ("1".equals(op)) {
             CRUDMonitores da = new CRUDMonitores();
             boolean respuesta = da.delete(idTemp);
@@ -64,23 +65,20 @@ public class Borrar extends HttpServlet {
             CRUDProfesores da = new CRUDProfesores();
             da.delete(id);
             response.sendRedirect("/Proyecto_Salas/mostrarp");
-        } else if ("4".equals(op)){
+        } else if ("4".equals(op)) {
             CRUDSalones da = new CRUDSalones();
             String idTemp2 = request.getParameter("id2");
             System.out.println(idTemp);
             System.out.println(idTemp2);
-            boolean respuesta=da.delete(idTemp, idTemp2);
+            boolean respuesta = da.delete(idTemp, idTemp2);
             System.out.println(respuesta);
-               if (respuesta) 
-            {
+            if (respuesta) {
                 response.sendRedirect("/ProyectoSalas/Mostrars");
-            }
-            else
-            {
+            } else {
                 PrintWriter out = response.getWriter();
                 out.println("error");
             }
-        }else{
+        } else if ("5".equals(op)) {
             CRUDMonitores da = new CRUDMonitores();
             boolean respuesta = da.deleteAll();
             if (respuesta) {
@@ -89,6 +87,10 @@ public class Borrar extends HttpServlet {
                 PrintWriter out = response.getWriter();
                 out.println("error");
             }
+        } else if ("6".equals(op)) {
+            CRUDReservaProfesores da = new CRUDReservaProfesores();
+            da.delete(idTemp);
+            response.sendRedirect("/ProyectoSalas/mostrarRP");
         }
 
     }
